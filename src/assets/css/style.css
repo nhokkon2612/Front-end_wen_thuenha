@@ -635,7 +635,7 @@ body #backtotop a { color: #fff; }
 
 #backtotop a:after {
 	content: "\f106";
-	font-family: "FontAwesome";
+  font-family: "FontAwesome", serif;
 	position: relative;
 	display: block;
 	top: 50%;
@@ -1876,7 +1876,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 .hamburger-inner::before { top: -10px; outline: none; }
 .hamburger-inner::after { bottom: -10px; outline: none; }
 
-transform: rotate(-90deg); }
+/*transform: rotate(-90deg); }*/
 
 /* Animation */
 .hamburger--collapse .hamburger-inner {
@@ -2506,7 +2506,7 @@ h4.search-title {
 	outline: none;
 	top: -8px;
 	margin-left: -8px;
-	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.15);
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
 }
 
 .range-slider .ui-slider .ui-slider-range {
@@ -6849,7 +6849,7 @@ body .carousel {
 /* preloading images */
 .owl-item.loading{
 	min-height: 150px;
-	background: url(AjaxLoader.gif) no-repeat center center
+	/*background: url(AjaxLoader.gif) no-repeat center center*/
 }
 
 /*
@@ -6911,7 +6911,7 @@ body .carousel {
 
 /* mouse grab icon */
 .grabbing {
-    cursor:url(grabbing.png) 8 8, move;
+    /*cursor:url(src/assets/images/grabbing.png) 8 8, move;*/
 }
 
 /* fix */
@@ -9930,10 +9930,10 @@ body .notification strong { border: none; }
 	cursor: pointer;
 }
 
-.notification.success .close {background: url(../images/alert_boxes_close_ico.png) 0 -8px no-repeat;}
-.notification.error .close {background: url(../images/alert_boxes_close_ico.png) 0 0 no-repeat;}
-.notification.warning .close {background: url(../images/alert_boxes_close_ico.png) 0 -16px no-repeat;}
-.notification.notice .close {background: url(../images/alert_boxes_close_ico.png) 0 -24px no-repeat;}
+/*.notification.success .close {background: url(../images/alert_boxes_close_ico.png) 0 -8px no-repeat;}*/
+/*.notification.error .close {background: url(src/assets/images/alert_boxes_close_ico.png) 0 0 no-repeat;}*/
+/*.notification.warning .close {background: url(src/assets/images/alert_boxes_close_ico.png) 0 -16px no-repeat;}*/
+/*.notification.notice .close {background: url(src/assets/images/alert_boxes_close_ico.png) 0 -24px no-repeat;}*/
 
 
 .notification.notice p span i { font-weight: 500; }
@@ -11494,7 +11494,7 @@ input#date-picker:hover {
   border: none;
 }
 
-.daterangepicker .calendar-table .next span, 
+.daterangepicker .calendar-table .next span,
 .daterangepicker .calendar-table .prev span {
   color: #fff;
   border: solid #aaa;
@@ -11520,7 +11520,7 @@ input#date-picker:hover {
   -webkit-transform: rotate(135deg);
 }
 
-.daterangepicker .calendar-table th, 
+.daterangepicker .calendar-table th,
 .daterangepicker .calendar-table td {
   white-space: nowrap;
   text-align: center;
@@ -11750,7 +11750,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 	float: right;
 	background: #fff;
 	border-radius: 3px;
-	cursor: pointer; 
+	cursor: pointer;
 	padding: 6px;
 	display: inline-block;
 	position: relative;
@@ -11796,7 +11796,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 
 #booking-date-range i {
 	color: #999;
-	background-color: 
+	background-color:
 }
 
 /* Booking Requests Filter / End */
@@ -12246,7 +12246,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 	button.button.social-login.via-facebook { background-color: #3b5998; }
 	button.button.social-login.via-gplus { background-color: #dd4b39; }
 	button.button.social-login.via-twitter { background-color: #1da1f2; }
-	
+
 	body .pac-container {
 		border-radius: 0 0 4px 4px;
 		box-shadow: none;
