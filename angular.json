@@ -98,7 +98,9 @@
               "assets/css/style.css",
               "assets/css/color.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           }
         }
       }

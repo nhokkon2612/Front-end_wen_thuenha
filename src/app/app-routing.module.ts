@@ -5,13 +5,12 @@ import { MasterComponent } from './layouts/page/master/master.component';
 
 const routes: Routes = [{
   path: '',
-  component: MasterComponent
-},
-{
-  path: 'login',
-  component: LoginComponent
-}];
-
+  component: MasterComponent,
+  children: [{
+    path: 'login',
+    component: LoginComponent
+  }]
+}]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
