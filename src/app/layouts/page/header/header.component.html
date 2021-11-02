@@ -64,32 +64,26 @@
                 <nav id="navigation" class="style-1">
                     <ul id="responsive">
 
-                        <li><a class="current" href="#">Trang chủ</a>
-                            <ul>
-                                <li><a href="index.html">Home 1</a></li>
-                                <li><a href="index-2.html">Home 2</a></li>
-                                <li><a href="index-3.html">Home 3</a></li>
-                                <li><a href="index-4.html">Home 4</a></li>
-                            </ul>
+                        <li><a class="current" routerLink="">Trang chủ</a>
                         </li>
 
                         <li><a href="#">Danh sách</a>
                             <ul>
                                 <li><a href="#">Bố cục danh sách</a>
                                     <ul>
-                                        <li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-                                        <li><a href="listings-list-with-map.html">With Map</a></li>
-                                        <li><a href="listings-list-full-width.html">Full Width</a></li>
+                                        <li><a href="listings-list-with-sidebar.html">Với thanh bên</a></li>
+                                        <li><a href="listings-list-with-map.html"> Với Bản đồ</a></li>
+                                        <li><a href="listings-list-full-width.html">Chiều rộng đầy đủ</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Grid Layout</a>
+                                <li><a href="#">Bố cục lưới</a>
                                     <ul>
-                                        <li><a href="listings-grid-standard-with-sidebar.html">Standard With
+                                        <li><a href="listings-grid-standard-with-sidebar.html"> Standard With
                                                 Sidebar</a></li>
-                                        <li><a href="listings-grid-compact-with-sidebar.html">Compact With
+                                        <li><a href="listings-grid-compact-with-sidebar.html">Nhỏ gọn với
                                                 Sidebar</a></li>
-                                        <li><a href="listings-grid-with-map.html">With Map</a></li>
-                                        <li><a href="listings-grid-full-width.html">Full Width</a></li>
+                                        <li><a href="listings-grid-with-map.html">Với bản đồ</a></li>
+                                        <li><a href="listings-grid-full-width.html">Chiều rộng đầy đủ</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Half Map</a>
@@ -106,14 +100,14 @@
 
                         <li><a href="#">Đặc trưng</a>
                             <ul>
-                                <li><a href="#">Single Properties</a>
+                                <li><a href="#">Thuộc tính đơn</a>
                                     <ul>
                                         <li><a href="single-property-page-1.html">Property Style 1</a></li>
                                         <li><a href="single-property-page-2.html">Property Style 2</a></li>
                                         <li><a href="single-property-page-3.html">Property Style 3</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Search Styles</a>
+                                <li><a href="#">Kiểu tìm kiếm</a>
                                     <ul>
                                         <li><a href="index.html">Home Search 1</a></li>
                                         <li><a href="index-2.html">Home Search 2</a></li>
@@ -122,7 +116,7 @@
                                         <li><a href="listings-list-with-sidebar.html">Sidebar Search</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">My Account</a>
+                                <li><a href="#">Tài khoản của tôi</a>
                                     <ul>
                                         <li><a href="my-profile.html">My Profile</a></li>
                                         <li><a href="my-bookmarks.html">Bookmarked Listings</a></li>
@@ -130,7 +124,7 @@
                                         <li><a href="change-password.html">Change Password</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Agencies & Agents</a>
+                                <li><a href="#">Cơ quan & Đại lý</a>
                                     <ul>
                                         <li><a href="agencies-list.html">Agencies List</a></li>
                                         <li><a href="agency-page.html">Agency Page</a></li>
@@ -172,7 +166,7 @@
             <div class="right-side">
                 <!-- Header Widget -->
                 <div class="header-widget">
-                    <a routerLink="login" class="sign-in"><i class="fa fa-user"></i> Đăng nhập/Đăng kí</a>
+                    <a href="http://localhost:4200/login" class="sign-in"><i class="fa fa-user"></i> Đăng nhập/Đăng kí</a>
                     <a href="submit-property.html" class="button border">Thêm sản phẩm</a>
                 </div>
                 <!-- Header Widget / End -->
@@ -182,5 +176,5 @@
         </div>
     </div>
     <!-- Header / End -->
-
+   <router-outlet></router-outlet>
 </header>
