@@ -13,6 +13,7 @@ import { FullwidthComponent } from './layouts/page/fullwidth/fullwidth.component
 import { ContainerComponent } from './layouts/page/container/container.component';
 import { Fullwidth2Component } from './layouts/page/fullwidth2/fullwidth2.component';
 import { LoginComponent } from './layouts/customers/login/login.component';
+import { HomeComponent } from './layouts/page/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './layouts/customers/login/login.component';
     FullwidthComponent,
     ContainerComponent,
     Fullwidth2Component,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
