@@ -1,3 +1,4 @@
+
 <header id="header-container" >
 
     <!-- Topbar -->
@@ -67,35 +68,7 @@
                         <li><a class="current" routerLink="">Trang chủ</a>
                         </li>
 
-                        <li><a href="#">Danh sách</a>
-                            <ul>
-                                <li><a href="#">Bố cục danh sách</a>
-                                    <ul>
-                                        <li><a href="listings-list-with-sidebar.html">Với thanh bên</a></li>
-                                        <li><a href="listings-list-with-map.html"> Với Bản đồ</a></li>
-                                        <li><a href="listings-list-full-width.html">Chiều rộng đầy đủ</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Bố cục lưới</a>
-                                    <ul>
-                                        <li><a href="listings-grid-standard-with-sidebar.html"> Standard With
-                                                Sidebar</a></li>
-                                        <li><a href="listings-grid-compact-with-sidebar.html">Nhỏ gọn với
-                                                Sidebar</a></li>
-                                        <li><a href="listings-grid-with-map.html">Với bản đồ</a></li>
-                                        <li><a href="listings-grid-full-width.html">Chiều rộng đầy đủ</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Half Map</a>
-                                    <ul>
-                                        <li><a href="listings-half-map-list.html">List Layout</a></li>
-                                        <li><a href="listings-half-map-grid-standard.html">Grid Standard Layout</a>
-                                        </li>
-                                        <li><a href="listings-half-map-grid-compact.html">Grid Compact Layout</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a routerLink="../product-list">Danh sách sản phẩm</a>
                         </li>
 
                         <li><a href="#">Đặc trưng</a>
@@ -166,7 +139,7 @@
             <div class="right-side">
                 <!-- Header Widget -->
                 <div class="header-widget">
-                    <a href="http://localhost:4200/login" class="sign-in"><i class="fa fa-user"></i> Đăng nhập/Đăng kí</a>
+                    <a class="sign-in"><i class="fa fa-user"></i> <a routerLink="login">Đăng nhập</a>/<a routerLink="register">Đăng kí</a></a>
                     <a href="submit-property.html" class="button border">Thêm sản phẩm</a>
                 </div>
                 <!-- Header Widget / End -->
