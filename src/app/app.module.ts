@@ -10,6 +10,7 @@ import { LoginComponent } from './layouts/customers/login/login.component';
 import { HomeComponent } from './layouts/page/home/home.component';
 import { RegisterComponent } from './layouts/customers/register/register.component';
 import { ProductListComponent } from './layouts/product/product-list/product-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductListComponent } from './layouts/product/product-list/product-lis
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
