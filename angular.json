@@ -28,8 +28,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/style.css",
-              "src/assets/css/color.css"
+              "assets/css/style.css",
+              "assets/css/color.css",
+              "ass"
             ],
             "scripts": []
           },
