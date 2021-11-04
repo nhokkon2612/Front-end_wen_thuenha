@@ -1,0 +1,12 @@
+.card{
+  float: left;
+  margin: 10px 10px 5px 10px;
+}
+
+img{
+  height: 250px;
+}
+
+.listing-title{
+  height: 150px;
+}
