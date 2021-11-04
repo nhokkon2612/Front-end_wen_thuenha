@@ -7,6 +7,7 @@ import {RegisterComponent} from './layouts/customers/register/register.component
 import { ProductListComponent } from './layouts/product/product-list/product-list.component';
 import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
 import { ProductCreateComponent } from './layouts/product/product-create/product-create.component';
+import { ProductDetailComponent } from './layouts/product/product-detail/product-detail.component';
 
 const routes: Routes = [
 
@@ -17,7 +18,12 @@ const routes: Routes = [
     path: '', component: MasterComponent,
     children: [
       {
-        path: 'home', component: HomeComponent
+        path: 'home', component: HomeComponent,
+        children:[
+          {
+            path:"product-detail",component: ProductDetailComponent,
+          }
+        ]
       },
       {
         path: 'login', component: LoginComponent
@@ -30,10 +36,12 @@ const routes: Routes = [
         children:[
           {
             path:"product-create", component: ProductCreateComponent,
-          }
+          },
         ]
       },
-
+      {
+        path:"product-detail",component: ProductDetailComponent,
+      }
     ]
   },
 
