@@ -1,0 +1,11 @@
+.container{
+  width:100%;
+  background-color: #c5d9f2;
+}
+.listing-item{
+  width: 400px;
+  height: 600px;
+}
+image{
+  height:400px;
+}
