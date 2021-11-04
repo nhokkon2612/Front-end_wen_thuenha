@@ -1,91 +1,73 @@
-<!-- Wrapper -->
 <div id="wrapper">
-  <!-- Compare Properties Widget
-================================================== -->
-
-  <!-- Compare Properties Widget / End -->
-
-
-  <!-- Header Container
-================================================== -->
   <div class="clearfix"></div>
-  <!-- Header Container / End -->
-
-
-
-  <!-- Titlebar
-================================================== -->
-  <!-- Contact
-================================================== -->
-
-  <!-- Container -->
-  <div class="container">
-
+  <div class="container" >
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-
-        <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
-          Twitter</button>
-        <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
-          Plus</button>
-        <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
-          Facebook</button>
-
-        <!--Tab -->
         <div class="my-account style-1 margin-top-5 margin-bottom-40">
-
-          <ul class="tabs-nav">
-            <li><a>">Đăng nhập</a></li>
-            <li><a>Đăng kí</a></li>
-          </ul>
-
-          <div class="tabs-container alt">
-
-            <!-- Login -->
-            <div class="tab-content" id="tab1">
-              <form method="post" class="login">
-
-                <p class="form-row form-row-wide">
-                  <label for="username">Tài khoản:
-                    <i class="im im-icon-Male"></i>
-                    <input type="text" class="input-text" name="username" id="username" value="" />
-                  </label>
-                </p>
-
-                <p class="form-row form-row-wide">
-                  <label for="password">Mật khẩu:
-                    <i class="im im-icon-Lock-2"></i>
-                    <input class="input-text" type="password" name="password" id="password" />
-                  </label>
-                </p>
-
-                <p class="form-row">
-                  <input type="submit" class="button border margin-top-10" name="login"
-                         value="Đăng nhập" />
-
-                  <label for="rememberme" class="rememberme">
-                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
-                    Lưu lại</label>
-                </p>
-
-                <p class="lost_password">
-                  <a href="#">Quên mật khẩu?</a>
-                </p>
-
-              </form>
-            </div>
-
-            <!-- Register -->
-
+          <div class="tab-content" id="tab1">
+            <form [formGroup]="infoUsers" class="login" (ngSubmit)="onSubmit()">
+              <p class="form-row form-row-wide">
+                <label for="username">Tài khoản:
+                  <i class="im im-icon-Male"></i>
+                  <input type="text" class="input-text" name="username" id="username" value=""
+                         formControlName="email"/>
+                </label>
+              </p>
+              <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
+                <div *ngIf="f.email.errors">
+                  <div *ngIf="f.email.errors.required">
+                    <small style="color: red" class="form-text text-muted">Email không được để trống</small>
+                  </div>
+                  <div *ngIf="f.email.errors.email">
+                    <small style="color: red" class="form-text text-muted">Không đúng định dạng email</small>
+                  </div>
+                </div>
+              </div>
+              <p class="form-row form-row-wide" style="margin-top:40px">
+                <label for="password">Mật khẩu:
+                  <i class="im im-icon-Lock-2"></i>
+                  <input class="input-text" type="password" name="password" id="password" formControlName="password"
+                         placeholder="" minlength="6"/>
+                </label>
+              </p>
+              <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
+                <div *ngIf="f.password.errors">
+                  <div *ngIf="f.password.errors.required">
+                    <small style="color: red" class="form-text text-muted">Password không được để trống</small>
+                  </div>
+                  <div *ngIf="f.password.errors.minlength">
+                    <small style="color: red" class="form-text text-muted">Password không dưới 6 kí tự</small>
+                  </div>
+                  <div *ngIf="f.password.errors.maxlength">
+                    <small style="color: red" class="form-text text-muted">Mật khẩu không quá 13 kí tự</small>
+                  </div>
+                </div>
+              </div>
+              <p class="form-row">
+                <input type="submit" class="button border margin-top-10" name="login"
+                       value="Đăng nhập"/>
+                <label for="rememberme" class="rememberme">
+                  <input name="rememberme" type="checkbox" id="rememberme" value="forever"/>
+                  Lưu lại</label>
+              </p>
+              <p class="lost_password">
+                <a href="#">Quên mật khẩu?</a>
+              </p>
+            </form>
+            <button class="button social-login via-twitter" style="text-align:center"><i class="fa fa-twitter"></i> Đăng nhập với
+              Twitter
+            </button>
+            <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
+              Plus
+            </button>
+            <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
+              Facebook
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </div >
 
   </div>
-  <!-- Container / End -->
-  <!-- Footer
-================================================== -->\
-  <div class="margin-top-55"></div>
-  <!-- Footer / End -->
 </div>
+<div class="margin-top-55"></div>

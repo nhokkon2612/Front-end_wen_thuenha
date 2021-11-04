@@ -1,20 +1,5 @@
-<!-- Wrapper -->
 <div id="wrapper">
-  <!-- Compare Properties Widget
-================================================== -->
-
-  <!-- Compare Properties Widget / End -->
-
-
-  <!-- Header Container
-================================================== -->
   <div class="clearfix"></div>
-  <!-- Header Container / End -->
-
-
-
-  <!-- Titlebar
-================================================== -->
   <div id="titlebar">
     <div class="container">
       <div class="row">
@@ -44,77 +29,112 @@
 
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-
-        <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
-          Twitter</button>
-        <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
-          Plus</button>
-        <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
-          Facebook</button>
-
         <!--Tab -->
         <div class="my-account style-1 margin-top-5 margin-bottom-40">
+          <!-- Register -->
+          <div class="tab-content" id="tab2">
 
-          <ul class="tabs-nav">
-            <li><a >Đăng nhập</a></li>
-            <li><a >Đăng kí</a></li>
-          </ul>
+            <form  (ngSubmit)="submit()" [formGroup]="form">
 
-          <div class="tabs-container alt">
+              <div class="form-row form-row-wide">
+                <label for="username2">Tên:
+                  <i class="im im-icon-Male"></i>
+                  <input type="text" class="input-text" name="username" id="username2" value="" formControlName="name"
+                         placeholder="Nhập tên của bạn" />
+                </label>
+                <div *ngIf="f.name.invalid && (f.name.dirty||f.name.touched)">
+                  <div *ngIf="f.name.errors">
+                    <div *ngIf="f.name.errors.required">
+                      <small style="color: red" class="form-text text-muted">Tên không được để trống</small>
+                    </div>
+                    <div *ngIf="f.name.errors.minlength">
+                      <small style="color: red" class="form-text text-muted">Tên không dưới 6 kí tự</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <!-- Login -->
 
+              <p class="form-row form-row-wide">
+                <label for="email2">Tài khoản Email:
+                  <i class="im im-icon-Mail"></i>
+                  <input type="text" class="input-text" name="email" id="email2" value="" formControlName="email"
+                         placeholder="Nhập email của bạn"/>
+                </label>
+              </p>
+              <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
+                <div *ngIf="f.email.errors">
+                  <div *ngIf="f.email.errors.required">
+                    <small style="color: red" class="form-text text-muted">Email không được để trống</small>
+                  </div>
+                  <div *ngIf="f.email.errors.email">
+                    <small style="color: red" class="form-text text-muted">Không đúng định dạng email</small>
+                  </div>
+                </div>
+              </div>
+              <p class="form-row form-row-wide">
+                <label for="password1">Mật khẩu:
+                  <i class="im im-icon-Lock-2"></i>
+                  <input class="input-text" type="password" name="password1" id="password1" formControlName="password"
+                         placeholder="Nhập mật khẩu"/>
+                </label>
+              </p>
+              <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
+                <div *ngIf="f.password.errors">
+                  <div *ngIf="f.password.errors.required">
+                    <small style="color: red" class="form-text text-muted">Mật khẩu không được để trống</small>
+                  </div>
+                  <div *ngIf="f.password.errors.minlength">
+                    <small style="color: red" class="form-text text-muted">Mật khẩu không dưới 6 kí tự</small>
+                  </div>
+                  <div *ngIf="f.password.errors.maxlength">
+                    <small style="color: red" class="form-text text-muted">Mật khẩu không quá 13 kí tự</small>
+                  </div>
+                </div>
+              </div>
+              <p class="form-row form-row-wide">
+                <label for="password2">Nhập lại mật khẩu:
+                  <i class="im im-icon-Lock-2"></i>
+                  <input class="input-text" type="password" name="password2" id="password2"
+                         formControlName="confirmPassword" placeholder="Nhập lại mật khẩu"/>
+                </label>
+              </p>
+              <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty||f.confirmPassword.touched)">
+                <div *ngIf="f.confirmPassword.errors">
+                  <div *ngIf="f.confirmPassword.errors.required">
+                    <small style="color: red" class="form-text text-muted">Nhập lại mật khẩu không được để trống</small>
+                  </div>
+                  <div *ngIf="f.confirmPassword.errors.email">
+                    <small style="color: red" class="form-text text-muted">Không đúng định dạng email</small>
+                  </div>
+                </div>
+              </div>
+              <p class="form-row">
+                <input type="submit" class="button border fw margin-top-10" name="register"
+                       value="Đăng kí"/>
+              </p>
 
-            <!-- Register -->
-            <div class="tab-content" id="tab2">
-
-              <form method="post" class="register">
-
-                <p class="form-row form-row-wide">
-                  <label for="username2">Tên:
-                    <i class="im im-icon-Male"></i>
-                    <input type="text" class="input-text" name="username" id="username2" value="" />
-                  </label>
-                </p>
-
-                <p class="form-row form-row-wide">
-                  <label for="email2">Tài khoản Email:
-                    <i class="im im-icon-Mail"></i>
-                    <input type="text" class="input-text" name="email" id="email2" value="" />
-                  </label>
-                </p>
-
-                <p class="form-row form-row-wide">
-                  <label for="password1">Mật khẩu:
-                    <i class="im im-icon-Lock-2"></i>
-                    <input class="input-text" type="password" name="password1" id="password1" />
-                  </label>
-                </p>
-
-                <p class="form-row form-row-wide">
-                  <label for="password2">Nhập lại mật khẩu:
-                    <i class="im im-icon-Lock-2"></i>
-                    <input class="input-text" type="password" name="password2" id="password2" />
-                  </label>
-                </p>
-
-                <p class="form-row">
-                  <input type="submit" class="button border fw margin-top-10" name="register"
-                         value="Đăng kí" />
-                </p>
-
-              </form>
-            </div>
-
+            </form>
           </div>
+
         </div>
       </div>
     </div>
 
+    <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
+      Twitter
+    </button>
+    <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
+      Plus
+    </button>
+    <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
+      Facebook
+    </button>
   </div>
-  <!-- Container / End -->
-  <!-- Footer
-================================================== -->\
-  <div class="margin-top-55"></div>
-  <!-- Footer / End -->
+
 </div>
+<!-- Container / End -->
+<!-- Footer
+================================================== -->\
+<div class="margin-top-55"></div>
+<!-- Footer / End -->
