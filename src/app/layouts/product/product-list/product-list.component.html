@@ -1,6 +1,5 @@
 <router-outlet></router-outlet>
 <div id="wrapper">
-  <div class="clearfix"></div>
   <section class="search margin-bottom-50">
     <div class="container">
       <div class="row">
@@ -99,41 +98,41 @@
           </div>
         </div>
         <div class="listings-container grid-layout-three">
-          <div class="listing-item">
+          <div class="listing-item" *ngFor="let product of products">
             <a href="single-property-page-1.html" class="listing-img-container">
               <div class="listing-badges">
                 <span class="featured">Đặc sắc</span>
-                <span>Rao bán</span>
+                <span>{{product.homestatus.name}}</span>
               </div>
               <div class="listing-img-content">
-                <span class="listing-price"><i>3.000.000VNĐ / Tháng</i></span>
+                <span class="listing-price"><i>{{product.price | currency: 'VND'}} / Tháng</i></span>
                 <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
                 <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
               </div>
               <div class="listing-carousel">
-                <div><img src="assets/images/listing-01c.jpg" alt=""></div>
+                <div><img src="{{product.media.content}}" alt=""></div>
               </div>
             </a>
             <div class="listing-content">
               <div class="listing-title">
-                <h4><a href="single-property-page-1.html">Căn hộ Eagle</a></h4>
+                <h4><a href="single-property-page-1.html">{{product.title}}</a></h4>
                 <a
                   href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
                   class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
-                  9364 School St. Hoàng Cầu, HN
+                  {{product.detail_address}}
                 </a>
                 <a href="single-property-page-1.html" class="details button border">Thông tin chi tiết</a>
               </div>
               <ul class="listing-details">
-                <li>3.000.000VNĐ/tháng</li>
-                <li>1 phòng ngủ</li>
-                <li>3 phòng</li>
-                <li>1 phòng tắm</li>
+                <li>{{product.price | currency: 'VND'}}/tháng</li>
+                <li>Loại nhà: {{product.category.name}}</li>
+                <li>Phòng ngủ: {{product.bedroom.name}}</li>
+                <li>Phòng tắm: {{product.bathroom.name}}</li>
               </ul>
               <div class="listing-footer">
-                <a href="#"><i class="fa fa-user"></i> Hà Huy Cường</a>
-                <span><i class="fa fa-calendar-o"></i> 1 ngày trước</span>
+                <a href="#"><i class="fa fa-user"></i> {{product.user.name}}</a>
+                <span><i class="fa fa-calendar-o"></i> {{product.user.created_at}}</span>
               </div>
             </div>
           </div>
