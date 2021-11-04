@@ -49,8 +49,7 @@ export class RegisterComponent implements OnInit {
   submit() {
     this.submitted = true;
     if (this.form.valid) {
-      return;
+      return this.form.value;
     }
-    let data = this.form.value;
   }
 }
