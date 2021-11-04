@@ -8,12 +8,16 @@ import {ProductService} from "../../../sevices/product.service";
 })
 export class ProductListComponent implements OnInit {
   products: any;
+  isCheckLogin = false;
 
   constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
     this.getList();
+    if(localStorage.getItem('token')){
+      this.isCheckLogin = true;
+    }
   }
 
   getList() {
