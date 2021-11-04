@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
 import { httpInterceptorProviders } from './addtoken.interceptor';
 import { ProductCreateComponent } from './layouts/product/product-create/product-create.component';
+import { ProductDetailComponent } from './layouts/product/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductCreateComponent } from './layouts/product/product-create/product
     RegisterComponent,
     ProductListComponent,
     UserAccoutComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

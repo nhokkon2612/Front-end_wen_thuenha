@@ -1,13 +1,14 @@
-<router-outlet></router-outlet>
 <div id="wrapper">
   <div class="container">
+<!--    style="background-image: url(http://1.bp.blogspot.com/-8wZnglRtGH4/UOVSBZmsUXI/AAAAAAAAJg4/8ogOGGnl81s/s1600/hinh-nen-hd-dep-cho-may-tinh-nha-wallpaper-1.jpg)"-->
+<!--    style="background:rgba(0,0,0,0.5);"-->
     <div class="row fullwidth-layout">
       <div class="col-md-12">
         <a *ngIf="isCheckLogin" class="more-search-options-trigger margin-top-10" routerLink="product-create">Thêm sản
           phẩm</a>
         <div class="listings-container grid-layout-three">
-          <div class="listing-item" *ngFor="let product of products">
-            <a href="single-property-page-1.html" class="listing-img-container">
+          <div class="listing-item" *ngFor="let product of products" >
+            <a routerLink="../houses/{{product.id}}/detail" class="listing-img-container">
               <div class="listing-badges">
                 <span class="featured">Đặc sắc</span>
                 <span>{{product.homestatus.name}}</span>
@@ -23,9 +24,8 @@
             </a>
             <div class="listing-content">
               <div class="listing-title">
-                <h4><a href="single-property-page-1.html">{{product.title}}</a></h4>
-                <a
-                  href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                <h4><a routerLink="../houses/{{product.id}}/detail">{{product.title}}</a></h4>
+                <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
                   class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
                   {{product.detail_address}}
