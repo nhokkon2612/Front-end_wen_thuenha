@@ -43,7 +43,7 @@
                          placeholder="Nhập tên của bạn" />
                 </label>
                 <div *ngIf="f.name.invalid && (f.name.dirty||f.name.touched)">
-                  <div *ngIf="submitted && f.name.errors">
+                  <div *ngIf="f.name.errors">
                     <div *ngIf="f.name.errors.required">
                       <small style="color: red" class="form-text text-muted">Tên không được để trống</small>
                     </div>
@@ -63,7 +63,7 @@
                 </label>
               </p>
               <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
-                <div *ngIf="submitted && f.email.errors">
+                <div *ngIf="f.email.errors">
                   <div *ngIf="f.email.errors.required">
                     <small style="color: red" class="form-text text-muted">Email không được để trống</small>
                   </div>
@@ -80,7 +80,7 @@
                 </label>
               </p>
               <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
-                <div *ngIf="submitted && f.password.errors">
+                <div *ngIf="f.password.errors">
                   <div *ngIf="f.password.errors.required">
                     <small style="color: red" class="form-text text-muted">Mật khẩu không được để trống</small>
                   </div>
@@ -100,8 +100,8 @@
                 </label>
               </p>
               <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty||f.confirmPassword.touched)">
-                <div *ngIf="submitted && f.confirmPassword.errors">
-                  <div *ngIf="submitted && f.confirmPassword.errors.required">
+                <div *ngIf="f.confirmPassword.errors">
+                  <div *ngIf="f.confirmPassword.errors.required">
                     <small style="color: red" class="form-text text-muted">Nhập lại mật khẩu,không được để trống</small>
                   </div>
                   <div *ngIf="f.confirmPassword.errors.MustMatch">
@@ -113,6 +113,7 @@
                 <button type="submit" class="button border fw margin-top-10" name="register"
                         >Đăng kí</button>
               </p>
+
             </form>
           </div>
           <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
@@ -129,8 +130,3 @@
     </div>
   </div>
 </div>
-<!-- Container / End -->
-<!-- Footer
-================================================== -->\
-<div class="margin-top-55"></div>
-<!-- Footer / End -->
