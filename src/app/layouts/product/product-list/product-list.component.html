@@ -30,16 +30,16 @@
             </div>
             <div class="row with-forms">
               <div class="col-md-3">
-                  <select data-placeholder="Diện tích" class="chosen-select-no-single">
-                    <option label="Chọn diện tích"></option>
-                    <option>Diện tích bất kì</option>
-                  </select>
+                <select data-placeholder="Diện tích" class="chosen-select-no-single">
+                  <option label="Chọn diện tích"></option>
+                  <option>Diện tích bất kì</option>
+                </select>
               </div>
               <div class="col-md-3">
-                  <select data-placeholder="Số tiền" class="chosen-select-no-single">
-                    <option label="Chọn số tiền"></option>
-                    <option>Giá tiền bất kì</option>
-                  </select>
+                <select data-placeholder="Số tiền" class="chosen-select-no-single">
+                  <option label="Chọn số tiền"></option>
+                  <option>Giá tiền bất kì</option>
+                </select>
               </div>
               <div class="col-md-3">
                 <select data-placeholder="Số phòng ngủ" class="chosen-select-no-single">
@@ -76,25 +76,6 @@
       <div class="col-md-12">
         <div class="row margin-bottom-15">
           <div class="col-md-6">
-            <div class="sort-by">
-              <label>Sắp xếp theo:</label>
-              <div class="sort-by-select">
-                <select data-placeholder="Default order" class="chosen-select-no-single">
-                  <option>Đơn hàng mặc định</option>
-                  <option>Giá từ thấp đến cao</option>
-                  <option>Giá từ cao đến thấp</option>
-                  <option>Thuộc tính mới nhất</option>
-                  <option>Thuộc tính cũ nhất</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="layout-switcher">
-              <a href="#" class="grid-three"><i class="fa fa-th"></i></a>
-              <a href="#" class="grid"><i class="fa fa-th-large"></i></a>
-              <a href="#" class="list"><i class="fa fa-th-list"></i></a>
-            </div>
           </div>
         </div>
         <div class="listings-container grid-layout-three">
@@ -104,37 +85,32 @@
                 <span class="featured">Đặc sắc</span>
                 <span>{{product.homestatus.name}}</span>
               </div>
-              <div class="listing-img-content">
-                <span class="listing-price"><i>{{product.price | currency: 'VND'}} / Tháng</i></span>
-                <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
-                <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
-              </div>
               <div class="listing-carousel">
                 <div><img src="{{product.media.content}}" alt=""></div>
               </div>
+              <div class="listing-content">
+                <div class="listing-title">
+                  <h4><a href="single-property-page-1.html">{{product.title}}</a></h4>
+                  <a
+                    href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                    class="listing-address popup-gmaps">
+                    <i class="fa fa-map-marker"></i>
+                    {{product.detail_address}}
+                  </a>
+                  <a href="single-property-page-1.html" class="details button border">Thông tin chi tiết</a>
+                </div>
+                <ul class="listing-details">
+                  <li>{{product.price | currency: 'VND'}}/tháng</li>
+                  <li>Loại nhà: {{product.category.name}}</li>
+                  <li>Phòng ngủ: {{product.bedroom.name}}</li>
+                  <li>Phòng tắm: {{product.bathroom.name}}</li>
+                </ul>
+                <div class="listing-footer">
+                  <a href="#"><i class="fa fa-user"></i> {{product.user.name}}</a>
+                  <span><i class="fa fa-calendar-o"></i> {{product.user.created_at}}</span>
+                </div>
+              </div>
             </a>
-            <div class="listing-content">
-              <div class="listing-title">
-                <h4><a href="single-property-page-1.html">{{product.title}}</a></h4>
-                <a
-                  href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
-                  class="listing-address popup-gmaps">
-                  <i class="fa fa-map-marker"></i>
-                  {{product.detail_address}}
-                </a>
-                <a href="single-property-page-1.html" class="details button border">Thông tin chi tiết</a>
-              </div>
-              <ul class="listing-details">
-                <li>{{product.price | currency: 'VND'}}/tháng</li>
-                <li>Loại nhà: {{product.category.name}}</li>
-                <li>Phòng ngủ: {{product.bedroom.name}}</li>
-                <li>Phòng tắm: {{product.bathroom.name}}</li>
-              </ul>
-              <div class="listing-footer">
-                <a href="#"><i class="fa fa-user"></i> {{product.user.name}}</a>
-                <span><i class="fa fa-calendar-o"></i> {{product.user.created_at}}</span>
-              </div>
-            </div>
           </div>
         </div>
         <div class="clearfix"></div>
