@@ -2462,9 +2462,9 @@ h4.search-title {
 
 /* Trigger */
 .more-search-options-trigger {
-	font-size: 15px;
-	margin: 5px 0 2px 0;
-	display: inline-block;
+  font-size: 25px;
+  margin: 0 0 20px 0;
+  display: inline-block;
 }
 
 .more-search-options-trigger:after { content: attr(data-open-title); }

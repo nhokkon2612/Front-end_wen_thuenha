@@ -1,79 +1,9 @@
 <router-outlet></router-outlet>
 <div id="wrapper">
-  <section class="search margin-bottom-50">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="search-title">Tìm kiếm</h3>
-          <div class="main-search-box no-shadow">
-            <div class="row with-forms">
-              <div class="col-md-3">
-                <select data-placeholder="Loại nhà thuê" class="chosen-select-no-single">
-                  <option>Bất kỳ loại nào</option>
-                  <option>Căn hộ</option>
-                  <option>Nhà ở</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select data-placeholder="Thành phố" class="chosen-select-no-single">
-                  <option>Hà Nội</option>
-                  <option>Căn hộ</option>
-                  <option>Nhà ở</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <div class="main-search-input">
-                  <input type="text" placeholder="Nhập địa chỉ, ví dụ:thành phố hoặc quận" value=""/>
-                  <button class="button">Tìm kiếm</button>
-                </div>
-              </div>
-            </div>
-            <div class="row with-forms">
-              <div class="col-md-3">
-                <select data-placeholder="Diện tích" class="chosen-select-no-single">
-                  <option label="Chọn diện tích"></option>
-                  <option>Diện tích bất kì</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select data-placeholder="Số tiền" class="chosen-select-no-single">
-                  <option label="Chọn số tiền"></option>
-                  <option>Giá tiền bất kì</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select data-placeholder="Số phòng ngủ" class="chosen-select-no-single">
-                  <option label="Số phòng ngủ"></option>
-                  <option>Phòng ngủ</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select data-placeholder="Số nhà tắm" class="chosen-select-no-single">
-                  <option label="Số nhà tắm"></option>
-                  <option>Nhà tắm</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="more-search-options-trigger margin-top-10" routerLink="product-create"
-         style="font-size:23px">Thêm sản phẩm</a>
-    </div>
-  </section>
   <div class="container">
     <div class="row fullwidth-layout">
       <div class="col-md-12">
+        <a *ngIf="isCheckLogin" class="more-search-options-trigger margin-top-10" routerLink="product-create">Thêm sản phẩm</a>
         <div class="listings-container grid-layout-three">
           <div class="listing-item" *ngFor="let product of products">
             <a href="single-property-page-1.html" class="listing-img-container">
@@ -82,7 +12,7 @@
                 <span>{{product.homestatus.name}}</span>
               </div>
               <div class="listing-img-content">
-                <span class="listing-price">$275,000 <i>$520 / sq ft</i></span>
+                <span class="listing-price"> <i>{{product.price | currency: 'VND'}} / tháng</i></span>
                 <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
                 <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
               </div>
