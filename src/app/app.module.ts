@@ -10,7 +10,11 @@ import { LoginComponent } from './layouts/customers/login/login.component';
 import { HomeComponent } from './layouts/page/home/home.component';
 import { RegisterComponent } from './layouts/customers/register/register.component';
 import { ProductListComponent } from './layouts/product/product-list/product-list.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http";
+import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
+import { httpInterceptorProviders } from './addtoken.interceptor';
+import { ProductCreateComponent } from './layouts/product/product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,18 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    ProductListComponent
+    ProductListComponent,
+    UserAccoutComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
