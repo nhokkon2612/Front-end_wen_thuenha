@@ -1,12 +1,13 @@
-card{
+
+.card{
   float: left;
   margin: 10px 10px 5px 10px;
 }
 
 img{
-  height: 250px;
+  height: 300px;
 }
 
 .listing-title{
-  height: 120px;
+  height: 150px;
 }
