@@ -1,8 +1,15 @@
+.container{
+  width:100%;
+  background-color: #c5d9f2;
+}
+.listing-item{
+  width: 400px;
+  height: 600px;
+}
 .card{
   float: left;
   margin: 10px 10px 5px 10px;
 }
-
 img{
   height: 250px;
 }

@@ -7,23 +7,34 @@
       <div class="search-type-arrow"></div>
     </div>
     <div class="main-search-box">
-      <input type="text" placeholder="Nhập số nhà">
-      <div class="main-search-input larger-input">
-        <select data-placeholder="Quận" class="chosen-select-no-single">
-          <option label="Quận"></option>
-          <option>Hà Nội</option>
-          <option>Danh sách 02</option>
-          <option>Danh sách 03</option>
-          <option>Danh sách 04</option>
-        </select>
-        <select data-placeholder="Thành phố" class="chosen-select-no-single">
-          <option label="Thành phố"></option>
-          <option>Hà Nội</option>
+      <div class="row with-forms">
+        <div class="col-md-10">
+          <input type="text" placeholder="Nhập số nhà">
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="button">Thêm</button>
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-6">
+          <select data-placeholder="Quận" class="chosen-select-no-single" >
+            <option label="Quận"></option>
+            <option>Hà Nội</option>
+            <option>Danh sách 02</option>
+            <option>Danh sách 03</option>
+            <option>Danh sách 04</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select data-placeholder="Thành phố" class="chosen-select-no-single">
+            <option label="Thành phố"></option>
+            <option>Hà Nội</option>
 
-          <option>Danh sách 02</option>
-          <option>Danh sách 03</option>
-          <option>Danh sách 04</option>
-        </select>
+            <option>Danh sách 02</option>
+            <option>Danh sách 03</option>
+            <option>Danh sách 04</option>
+          </select>
+        </div>
       </div>
       <div class="row with-forms">
         <div class="col-md-4">
@@ -37,8 +48,8 @@
           </select>
         </div>
         <div class="col-md-4">
-          <select data-placeholder="Diện tích" class="chosen-select-no-single">
-            <option label="Diện tích"></option>
+          <select data-placeholder="Khoảng giá" class="chosen-select-no-single">
+            <option label="Khoảng giá"></option>
             <option>Diện tích</option>
             <option>Danh sách 02</option>
             <option>Danh sách 03</option>
@@ -49,19 +60,19 @@
           <div class="select-input">
             <input type="text" placeholder="Giá cho thuê" data-unit="VNĐ">
           </div>
-          <select data-placeholder="Mức giá" class="chosen-select-no-single">
-            <option label="Mức giá"></option>
-            <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
         </div>
       </div>
       <div class="row with-forms">
-        <div class="col-md-6">
+        <div class="col-md-4">
+          <select data-placeholder="Diện tích" class="chosen-select-no-single">
+            <option label="Diện tích"></option>
+            <option>Diện tích</option>
+            <option>Danh sách 02</option>
+            <option>Danh sách 03</option>
+            <option>Danh sách 04</option>
+          </select>
+        </div>
+        <div class="col-md-4">
           <select data-placeholder="Phòng ngủ" class="chosen-select-no-single">
             <option label="Phòng ngủ"></option>
             <option>Giường (bất kì)</option>
@@ -72,7 +83,7 @@
             <option>5</option>
           </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <select data-placeholder="Nhà tắm" class="chosen-select-no-single">
             <option label="Nhà tắm"></option>
             <option>Nhà tắm (bất kì)</option>
@@ -83,22 +94,17 @@
             <option>5</option>
           </select>
         </div>
-
       </div>
       <div class="row with-forms">
         <div class="col-md-6">
-          <select data-placeholder="Nhà tắm" class="chosen-select-no-single">
-            <option label="blank"></option>
-            <option>Nhà tắm (bất kì)</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+          <input type="text" class="form-control" placeholder="Tiêu đề">
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-12">
+          <textarea placeholder="Thông tin ngôi nhà"></textarea>
         </div>
       </div>
     </div>
-    <button class="button">Thêm</button>
   </form>
 </div>
