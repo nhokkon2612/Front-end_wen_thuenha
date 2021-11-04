@@ -1,19 +1,7 @@
-.container{
-  width:100%;
-  background-color: #c5d9f2;
-}
 .listing-item{
   width: 400px;
-  height: 600px;
-}
-.card{
-  float: left;
-  margin: 10px 10px 5px 10px;
+  height: 700px;
 }
 img{
-  height: 250px;
-}
-
-.listing-title{
-  height: 120px;
+  height: 380px;
 }
