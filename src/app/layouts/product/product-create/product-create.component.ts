@@ -20,7 +20,7 @@ export class ProductCreateComponent implements OnInit {
   areas: any;
   urbanDistricts: any;
   users: any;
-
+  status?: false;
   constructor(private productService: ProductService,
               private fb: FormBuilder) {
   }
@@ -28,7 +28,7 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit(): void {
     this.getList();
     this.getInforForm();
-    // this.getUser();
+    this.getUser();
     this.formCreateProduct = this.fb.group({
       title: [''],
       squared_id: [''],
@@ -49,8 +49,11 @@ export class ProductCreateComponent implements OnInit {
   submit() {
     let data = this.formCreateProduct?.value;
     this.productService.createProduct(data).subscribe(res => {
-      this.router.navigate(['list']).then();
-      console.log(data);
+      if(!status){
+        alert('Đăng nhà cho thuê thành công');
+      } else {
+        alert('Thất bại')
+      }
     })
   }
 
