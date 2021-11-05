@@ -1,26 +1,28 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class HouseService {
   private products: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   api_url = 'http://127.0.0.1:8000/api/';
 
   getList(): Observable<any> {
-    return this.http.get(this.api_url + 'list');
+    return this.http.get(environment.api_url + 'houses');
   }
 
-  createProduct(data: any): Observable<any> {
+  createHouse(data: any): Observable<any> {
     return this.http.post(this.api_url + 'create', data);
   }
 
-  getInforForm():Observable<any>{
+  getInforForm(): Observable<any> {
     let t = localStorage.getItem('token');
     let headers_object = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -32,7 +34,7 @@ export class ProductService {
     return this.http.get(this.api_url + 'form', httpOptions);
   }
 
-  getUser():Observable<any>{
+  getUser(): Observable<any> {
     let t = localStorage.getItem('token');
     let headers_object = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -42,6 +44,7 @@ export class ProductService {
       headers: headers_object
     };
     return this.http.get(this.api_url + 'auth/me', httpOptions);
+  }
 
   getDetail(id: number): Observable<any> {
     return this.http.get(this.api_url + 'home/' + id + '/detail');

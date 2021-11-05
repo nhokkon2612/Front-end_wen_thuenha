@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ProductService} from "../../../sevices/product.service";
+import {HouseService} from "../../../sevices/house.service";
 
 @Component({
   selector: 'app-product-create',
@@ -21,7 +21,7 @@ export class ProductCreateComponent implements OnInit {
   urbanDistricts: any;
   users: any;
 
-  constructor(private productService: ProductService,
+  constructor(private productService: HouseService,
               private fb: FormBuilder) {
   }
 
@@ -48,7 +48,7 @@ export class ProductCreateComponent implements OnInit {
 
   submit() {
     let data = this.formCreateProduct?.value;
-    this.productService.createProduct(data).subscribe(res => {
+    this.productService.createHouse(data).subscribe(res => {
       this.router.navigate(['list']).then();
       console.log(data);
     })
