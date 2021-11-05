@@ -23,7 +23,6 @@ export class ProductListComponent implements OnInit {
   getList() {
     this.productService.getList().subscribe(res => {
       this.products = res;
-      console.log(this.products.media)
     })
   }
 }
