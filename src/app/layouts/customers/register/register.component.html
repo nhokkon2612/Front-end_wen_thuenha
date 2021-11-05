@@ -102,39 +102,31 @@
               <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty||f.confirmPassword.touched)">
                 <div *ngIf="f.confirmPassword.errors">
                   <div *ngIf="f.confirmPassword.errors.required">
-                    <small style="color: red" class="form-text text-muted">Nhập lại mật khẩu không được để trống</small>
+                    <small style="color: red" class="form-text text-muted">Nhập lại mật khẩu,không được để trống</small>
                   </div>
-                  <div *ngIf="f.confirmPassword.errors.email">
-                    <small style="color: red" class="form-text text-muted">Không đúng định dạng email</small>
+                  <div *ngIf="f.confirmPassword.errors.MustMatch">
+                    <small style="color: red" class="form-text text-muted">Mật khẩu không khớp</small>
                   </div>
                 </div>
               </div>
               <p class="form-row">
-                <input type="submit" class="button border fw margin-top-10" name="register"
-                       value="Đăng kí"/>
+                <button type="submit" class="button border fw margin-top-10" name="register"
+                        >Đăng kí</button>
               </p>
 
             </form>
           </div>
-
+          <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
+            Twitter
+          </button>
+          <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
+            Plus
+          </button>
+          <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
+            Facebook
+          </button>
         </div>
       </div>
     </div>
-
-    <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
-      Twitter
-    </button>
-    <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
-      Plus
-    </button>
-    <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
-      Facebook
-    </button>
   </div>
-
 </div>
-<!-- Container / End -->
-<!-- Footer
-================================================== -->\
-<div class="margin-top-55"></div>
-<!-- Footer / End -->

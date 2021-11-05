@@ -15,4 +15,8 @@ export class ProductService {
   getList(): Observable<any> {
     return this.http.get(this.api_url + 'list');
   }
+
+  getDetail(id: number): Observable<any> {
+    return this.http.get(this.api_url + 'home/' + id + '/detail');
+  }
 }

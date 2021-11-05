@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-header',
@@ -20,5 +21,4 @@ export class HeaderComponent implements OnInit {
     window.localStorage.clear();
     window.location.reload();
   }
-
 }
