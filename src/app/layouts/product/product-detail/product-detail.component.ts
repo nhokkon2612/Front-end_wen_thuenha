@@ -20,10 +20,10 @@ export class ProductDetailComponent implements OnInit {
     this.getDetails(id);
   }
 
+
   getDetails(id: number) {
     this.productService.getDetail(id).subscribe(res => {
       this.product = res
-      console.log('res')
     })
   }
 }

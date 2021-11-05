@@ -7,7 +7,6 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  submitted = false;
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -47,7 +46,8 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    this.submitted = true;
+
+
     if (this.form.valid) {
       return this.form.value;
     }
