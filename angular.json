@@ -29,7 +29,8 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/style.css",
-              "src/assets/css/color.css"
+              "src/assets/css/color.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": []
           },

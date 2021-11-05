@@ -14,16 +14,16 @@ const routes: Routes = [
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: "register", component: RegisterComponent
+  },
+  {
     path: '', component: MasterComponent,
     children: [
       {
         path: 'home', component: HomeComponent,
-      },
-      {
-        path: 'login', component: LoginComponent
-      },
-      {
-        path: "register", component: RegisterComponent
       },
       {
         path: 'houses',

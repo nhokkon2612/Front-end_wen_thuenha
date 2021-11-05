@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginService} from "../../../sevices/login.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import {LoginService} from "../../../sevices/login.service";
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup | undefined;
-  errorLogin:string = '';
+  errorLogin: string = '';
+  successLogin: string = '';
 
   constructor(private fb: FormBuilder,
               private loginService: LoginService,
@@ -32,8 +34,14 @@ export class LoginComponent implements OnInit {
       if (res.status == 'error') {
         this.errorLogin = res.message;
       } else {
-       localStorage.setItem('token', res.access_token);
-        this.router.navigate([''])
+        this.successLogin = res.message;
+        localStorage.setItem('token', res.access_token);
+        this.router.navigate(['home']).then(() => {
+          Swal.fire("Chào mừng", 'Bạn đã đăng nhập thành công', "success")
+          setInterval(() => {
+            window.location.reload()
+          }, 1000)
+        })
       }
     })
   }

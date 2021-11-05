@@ -1,6 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {AuthService} from "../../../sevices/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-header',
@@ -10,14 +11,16 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class HeaderComponent implements OnInit, DoCheck {
   isCheckLogin = false;
   nameUser = ''
+
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngDoCheck(): void {
     if (localStorage.getItem('token')) {
       this.isCheckLogin = true;
     }
-    }
+  }
 
   ngOnInit(): void {
     this.getInfoUserLogin();
@@ -25,17 +28,20 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   getInfoUserLogin() {
-      this.authService.getUserInfo().subscribe(res => {
-        this.nameUser = res.name
-        this.isCheckLogin = true;
-        console.log(res)
-      })
+    this.authService.getUserInfo().subscribe(res => {
+      this.nameUser = res.name
+      this.isCheckLogin = true;
+      console.log(res)
+    })
   }
 
-
-
-  logout(){
+  logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['']);
+    this.router.navigate(['login']).then(() => {
+      Swal.fire('Ban đã đăng xuất', 'Vui lòng đăng nhập để trai nghiệm tốt hơn', 'warning')
+      setInterval(() => {
+        window.location.reload()
+      }, 1000)
+    });
   }
 }
