@@ -8,8 +8,7 @@ import {Observable} from "rxjs";
 export class ProductService {
   private products: any = [];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   api_url = 'http://127.0.0.1:8000/api/';
 
@@ -43,5 +42,8 @@ export class ProductService {
       headers: headers_object
     };
     return this.http.get(this.api_url + 'auth/me', httpOptions);
+
+  getDetail(id: number): Observable<any> {
+    return this.http.get(this.api_url + 'home/' + id + '/detail');
   }
 }
