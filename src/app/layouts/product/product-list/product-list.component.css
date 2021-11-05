@@ -16,3 +16,8 @@ img{
   height: 400px;
   background-image: url(https://www.kiena.vn/fileserver/images/file/fixsize-1600x400/upload/addon/catbanner/W5abb228657759/banner-project.jpg)
 }
+
+.forms{
+  height:30px;
+  width:100%;
+}
