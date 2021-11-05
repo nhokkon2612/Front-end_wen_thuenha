@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let data = this.formLogin?.value;
     this.loginService.login(data).subscribe(res => {
-      console.log(res.access_token)
       if (res.status == 'error') {
         this.errorLogin = res.message;
       } else {

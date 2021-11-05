@@ -26,14 +26,20 @@ const routes: Routes = [
         path: "register", component: RegisterComponent
       },
       {
-        path: "houses", component: ProductListComponent,
+        path: 'houses',
+        children: [
+          {
+            path: "", component: ProductListComponent,
+          },
+          {
+            path: "create", component: ProductCreateComponent,
+          },
+          {
+            path: ":id/detail", component: ProductDetailComponent,
+          }
+        ]
       },
-      {
-        path: "houses/create", component: ProductCreateComponent,
-      },
-      {
-        path: "houses/:id/detail", component: ProductDetailComponent,
-      }
+
     ]
   },
 

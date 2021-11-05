@@ -1,24 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpHeaders} from "@angular/common/http";
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {AuthService} from "../../../sevices/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, DoCheck {
   isCheckLogin = false;
-  name = ''
-  constructor() { }
+  nameUser = ''
+  constructor(private authService: AuthService,
+              private router: Router) { }
+
+  ngDoCheck(): void {
+    if (localStorage.getItem('token')) {
+      this.isCheckLogin = true;
+    }
+    }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')){
-      this.isCheckLogin = true;
-      this.name = 'user account';
-    }
+    this.getInfoUserLogin();
+    this.isCheckLogin = this.authService.checkLogin();
   }
+
+  getInfoUserLogin() {
+      this.authService.getUserInfo().subscribe(res => {
+        this.nameUser = res.name
+        this.isCheckLogin = true;
+        console.log(res)
+      })
+  }
+
+
+
   logout(){
-    window.localStorage.clear();
-    window.location.reload();
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
   }
 }
