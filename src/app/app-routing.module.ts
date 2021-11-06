@@ -13,7 +13,6 @@ const routes: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full',
   },
-
   {
     path: '', component: MasterComponent,
     children: [
@@ -40,7 +39,6 @@ const routes: Routes = [
           }
         ]
       },
-
     ]
   },
 
