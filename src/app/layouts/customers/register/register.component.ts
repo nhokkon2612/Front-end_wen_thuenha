@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {RegisterService} from "../../../sevices/register.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,10 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private registerService: RegisterService,
+              private router: Router
+  ) {
     this.form = this.fb.group({
         name: new FormControl(null, [Validators.required, Validators.minLength(6)]),
         email: new FormControl(null, [Validators.required, Validators.email]),
@@ -46,10 +51,18 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-
-
-    if (this.form.valid) {
-      return this.form.value;
-    }
+    let data = this.form.value;
+    this.registerService.register(data).subscribe(
+      res => {
+        console.log('res')
+        if (res.status == 'success') {
+          this.router.navigate(['login']);
+        } else {
+          this.router.navigate(['register']).then(() => {
+            window.location.reload()
+          });
+        }
+      }
+    );
   }
 }

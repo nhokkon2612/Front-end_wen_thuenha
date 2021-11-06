@@ -8,7 +8,8 @@ import {ProductService} from 'src/app/sevices/product.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  private product: any;
+  product: any;
+  media:any;
 
   constructor(private productService: ProductService,
               private router: ActivatedRoute) {
@@ -24,6 +25,7 @@ export class ProductDetailComponent implements OnInit {
   getDetails(id: number) {
     this.productService.getDetail(id).subscribe(res => {
       this.product = res
+      this.media = res.media
     })
   }
 }
