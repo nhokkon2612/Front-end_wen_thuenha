@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,15 @@ import {Observable} from "rxjs";
 export class ProductService {
   private products: any = [];
 
-  constructor(private http: HttpClient) {
-  }
-
-  api_url = 'http://127.0.0.1:8000/api/';
+  constructor(private http: HttpClient) {}
 
   getList(): Observable<any> {
-    return this.http.get(this.api_url + 'list');
+    return this.http.get(environment.api_url + 'list');
   }
 
 
   createProduct(data: any): Observable<any> {
-    return this.http.post(this.api_url + 'create', data);
+    return this.http.post(environment.api_url + 'create', data);
   }
 
   getInforForm(): Observable<any> {
@@ -31,14 +29,13 @@ export class ProductService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.get(this.api_url + 'form', httpOptions);
+    return this.http.get(environment.api_url + 'form', httpOptions);
   }
 
   getUser(): Observable<any> {
-    return this.http.get(this.api_url + 'auth/me');
+    return this.http.get(environment.api_url + 'auth/me');
   }
-
   getDetail(id: number): Observable<any> {
-    return this.http.get(this.api_url + 'home/' + id + '/detail');
+    return this.http.get(environment.api_url + 'home/' + id + '/detail');
   }
 }
