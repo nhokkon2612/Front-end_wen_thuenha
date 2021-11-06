@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../../sevices/product.service";
+import {HouseService} from "../../../sevices/house.service";
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ export class ProductListComponent implements OnInit {
   products: any;
   isCheckLogin = false;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: HouseService) {
   }
 
   ngOnInit(): void {

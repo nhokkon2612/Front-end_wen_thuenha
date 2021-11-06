@@ -1,11 +1,12 @@
-<div id="wrapper">
+<div id="wrapper" xmlns="http://www.w3.org/1999/html">
   <div class="clearfix"></div>
   <div class="container" >
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
         <div class="my-account style-1 margin-top-5 margin-bottom-40">
           <div class="tab-content" id="tab1">
-            <form [formGroup]="infoUsers" class="login" (ngSubmit)="onSubmit()">
+            <div *ngIf="errorLogin" class="alert alert-danger">{{ errorLogin}}</div>
+            <form *ngIf="formLogin" [formGroup]="formLogin" class="login" (ngSubmit)="onSubmit()">
               <p class="form-row form-row-wide">
                 <label for="username">Tài khoản:
                   <i class="im im-icon-Male"></i>
@@ -13,12 +14,12 @@
                          formControlName="email"/>
                 </label>
               </p>
-              <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
-                <div *ngIf="f.email.errors">
-                  <div *ngIf="f.email.errors.required">
+              <div *ngIf="email?.invalid && (email?.dirty||email?.touched)">
+                <div *ngIf="email?.errors">
+                  <div *ngIf="email?.errors?.required">
                     <small style="color: red" class="form-text text-muted">Email không được để trống</small>
                   </div>
-                  <div *ngIf="f.email.errors.email">
+                  <div *ngIf="email?.errors?.email">
                     <small style="color: red" class="form-text text-muted">Không đúng định dạng email</small>
                   </div>
                 </div>
@@ -30,22 +31,22 @@
                          placeholder="" minlength="6"/>
                 </label>
               </p>
-              <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
-                <div *ngIf="f.password.errors">
-                  <div *ngIf="f.password.errors.required">
+              <div *ngIf="password?.invalid && (password?.dirty||password?.touched)">
+                <div *ngIf="password?.errors">
+                  <div *ngIf="password?.errors?.required">
                     <small style="color: red" class="form-text text-muted">Password không được để trống</small>
                   </div>
-                  <div *ngIf="f.password.errors.minlength">
+                  <div *ngIf="password?.errors?.minlength">
                     <small style="color: red" class="form-text text-muted">Password không dưới 6 kí tự</small>
                   </div>
-                  <div *ngIf="f.password.errors.maxlength">
+                  <div *ngIf="password?.errors?.maxlength">
                     <small style="color: red" class="form-text text-muted">Mật khẩu không quá 13 kí tự</small>
                   </div>
                 </div>
               </div>
               <p class="form-row">
-                <input type="submit" class="button border margin-top-10" name="login"
-                       value="Đăng nhập"/>
+                <button type="submit" [disabled]="formLogin.invalid" class="button border margin-top-10" name="login"
+                     >Đăng nhập</button>
                 <label for="rememberme" class="rememberme">
                   <input name="rememberme" type="checkbox" id="rememberme" value="forever"/>
                   Lưu lại</label>

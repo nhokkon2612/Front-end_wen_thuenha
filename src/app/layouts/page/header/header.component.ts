@@ -1,24 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpHeaders} from "@angular/common/http";
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {AuthService} from "../../../sevices/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
+// @ts-ignore
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, DoCheck {
   isCheckLogin = false;
-  name = ''
-  constructor() { }
+  nameUser = ''
 
-  ngOnInit(): void {
-    if(localStorage.getItem('token')){
+  constructor(private authService: AuthService,
+              private router: Router) {
+  }
+
+  ngDoCheck(): void {
+    if (localStorage.getItem('token')) {
       this.isCheckLogin = true;
-      this.name = 'user account';
     }
   }
-  logout(){
-    window.localStorage.clear();
-    window.location.reload();
+
+  ngOnInit(): void {
+    this.getInfoUserLogin();
+    this.isCheckLogin = this.authService.checkLogin();
+  }
+
+  getInfoUserLogin() {
+    this.authService.getUserInfo().subscribe(res => {
+      this.nameUser = res.name
+      this.isCheckLogin = true;
+      console.log(res)
+    })
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']).then(() => {
+      Swal.fire('Ban đã đăng xuất', 'Vui lòng đăng nhập để trai nghiệm tốt hơn', 'warning')
+      setInterval(() => {
+        window.location.reload()
+      }, 1000)
+    });
   }
 }

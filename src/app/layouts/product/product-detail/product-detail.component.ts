@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ProductService} from 'src/app/sevices/product.service';
+import {HouseService} from 'src/app/sevices/house.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,7 +11,7 @@ export class ProductDetailComponent implements OnInit {
   product: any;
   media:any;
 
-  constructor(private productService: ProductService,
+  constructor(private productService: HouseService,
               private router: ActivatedRoute) {
   }
 
@@ -24,8 +24,8 @@ export class ProductDetailComponent implements OnInit {
 
   getDetails(id: number) {
     this.productService.getDetail(id).subscribe(res => {
+      console.log(res);
       this.product = res
-      this.media = res.media
     })
   }
 }
