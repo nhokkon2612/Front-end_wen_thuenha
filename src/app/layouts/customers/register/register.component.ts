@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   get f() {
     return this.form.controls;
   }

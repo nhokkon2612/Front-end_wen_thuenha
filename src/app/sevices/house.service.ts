@@ -12,25 +12,39 @@ export class HouseService {
   constructor(private http: HttpClient) {
   }
 
-  api_url = 'http://127.0.0.1:8000/api/';
-
   getList(): Observable<any> {
     return this.http.get(environment.api_url + 'houses');
   }
 
   createHouse(data: any): Observable<any> {
-    return this.http.post(this.api_url + 'create', data);
-  }
-
-  getDetail(id: number): Observable<any> {
-    return this.http.get(this.api_url + 'houses/' + id + '/detail');
+    return this.http.post(environment.api_url + 'houses', data);
   }
 
   getInforForm(): Observable<any> {
-    return this.http.get(this.api_url + 'home/form');
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.http.get(environment.api_url + 'form', httpOptions);
   }
 
   getUser(): Observable<any> {
-    return this.http.get(this.api_url + 'auth/me');
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.http.get(environment.api_url + 'auth/me', httpOptions);
+  }
+
+  getDetail(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'houses/' + id + '/detail');
   }
 }

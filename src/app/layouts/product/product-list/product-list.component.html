@@ -6,7 +6,7 @@
 <!--    style="background:rgba(0,0,0,0.5);"-->
     <div class="row fullwidth-layout">
       <div class="col-md-12">
-        <a *ngIf="isCheckLogin" class="more-search-options-trigger margin-top-10" routerLink="../houses/create">Tôi có nhà cho th</a>
+        <a *ngIf="isCheckLogin" class="more-search-options-trigger margin-top-10" routerLink="../houses/create">Đăng nhà cho thuê</a>
         <div class="listings-container grid-layout-three">
           <div class="listing-item" *ngFor="let product of products" >
             <a routerLink="../houses/{{product.id}}/detail" class="listing-img-container">
