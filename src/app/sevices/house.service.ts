@@ -12,14 +12,12 @@ export class HouseService {
   constructor(private http: HttpClient) {
   }
 
-  api_url = 'http://127.0.0.1:8000/api/';
-
   getList(): Observable<any> {
     return this.http.get(environment.api_url + 'houses');
   }
 
   createHouse(data: any): Observable<any> {
-    return this.http.post(this.api_url + 'create', data);
+    return this.http.post(environment.api_url + 'create', data);
   }
 
   getInforForm(): Observable<any> {
@@ -31,7 +29,7 @@ export class HouseService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.get(this.api_url + 'form', httpOptions);
+    return this.http.get(environment.api_url + 'form', httpOptions);
   }
 
   getUser(): Observable<any> {
@@ -43,10 +41,10 @@ export class HouseService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.get(this.api_url + 'auth/me', httpOptions);
+    return this.http.get(environment.api_url + 'auth/me', httpOptions);
   }
 
   getDetail(id: number): Observable<any> {
-    return this.http.get(this.api_url + 'home/' + id + '/detail');
+    return this.http.get(environment.api_url + 'home/' + id + '/detail');
   }
 }
