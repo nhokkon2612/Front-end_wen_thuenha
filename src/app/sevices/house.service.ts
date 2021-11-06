@@ -17,7 +17,7 @@ export class HouseService {
   }
 
   createHouse(data: any): Observable<any> {
-    return this.http.post(environment.api_url + 'create', data);
+    return this.http.post(environment.api_url + 'houses', data);
   }
 
   getInforForm(): Observable<any> {
@@ -45,6 +45,6 @@ export class HouseService {
   }
 
   getDetail(id: number): Observable<any> {
-    return this.http.get(environment.api_url + 'home/' + id + '/detail');
+    return this.http.get(environment.api_url + 'houses/' + id + '/detail');
   }
 }
