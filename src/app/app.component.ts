@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// @ts-ignore
 import Swal from 'sweetalert2';
 
 
@@ -29,7 +30,7 @@ export class AppComponent {
       showCancelButton: true,
       confirmButtonText: 'Yes, go ahead.',
       cancelButtonText: 'No, let me think'
-    }).then((result) => {
+    }).then((result:any) => {
       if (result.value) {
         Swal.fire(
           'Removed!',

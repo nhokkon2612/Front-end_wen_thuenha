@@ -8,7 +8,8 @@ import {HouseService} from 'src/app/sevices/house.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  private product: any;
+  product: any;
+  media:any;
 
   constructor(private productService: HouseService,
               private router: ActivatedRoute) {
@@ -20,8 +21,10 @@ export class ProductDetailComponent implements OnInit {
     this.getDetails(id);
   }
 
+
   getDetails(id: number) {
     this.productService.getDetail(id).subscribe(res => {
+      console.log(res);
       this.product = res
       console.log('res')
     })

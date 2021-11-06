@@ -1,6 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {AuthService} from "../../../sevices/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+// @ts-ignore
 import Swal from "sweetalert2";
 
 @Component({
