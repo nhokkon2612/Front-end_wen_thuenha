@@ -16,7 +16,7 @@ export class AddtokenInterceptor implements HttpInterceptor {
     let checkRequest = request;
     const token = window.localStorage.getItem("token");
     if(token!=null){
-      checkRequest = request.clone({headers: request.headers.set('Authorization','Bearer'+token)});
+      checkRequest = request.clone({headers: request.headers.set('Authorization',"Bearer " + token)});
     }
     return next.handle(checkRequest);
   }

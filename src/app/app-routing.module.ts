@@ -11,8 +11,9 @@ import {ProductDetailComponent} from './layouts/product/product-detail/product-d
 const routes: Routes = [
 
   {
-    path: '', redirectTo: 'home', pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full',
   },
+
   {
     path: '', component: MasterComponent,
     children: [
@@ -26,14 +27,20 @@ const routes: Routes = [
         path: "register", component: RegisterComponent
       },
       {
-        path: "houses", component: ProductListComponent,
+        path: 'houses',
+        children: [
+          {
+            path: "", component: ProductListComponent,
+          },
+          {
+            path: "create", component: ProductCreateComponent,
+          },
+          {
+            path: ":id/detail", component: ProductDetailComponent,
+          }
+        ]
       },
-      {
-        path: "houses/create", component: ProductCreateComponent,
-      },
-      {
-        path: "houses/:id/detail", component: ProductDetailComponent,
-      }
+
     ]
   },
 

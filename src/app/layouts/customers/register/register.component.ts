@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import {RegisterService} from "../../../sevices/register.service";
 import {Router} from "@angular/router";
+import {RegisterService} from "../../../sevices/register.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-register',
@@ -54,11 +55,10 @@ export class RegisterComponent implements OnInit {
     this.registerService.register(data).subscribe(
       res => {
         if (res.status == 'success') {
+          Swal.fire('Đăng ký thành công','Vui lòng đăng nhập hệ thống','success')
           this.router.navigate(['login']);
         } else {
-          this.router.navigate(['register']).then(() => {
-            window.location.reload()
-          });
+          this.router.navigate(['register'])
         }
       }
     );

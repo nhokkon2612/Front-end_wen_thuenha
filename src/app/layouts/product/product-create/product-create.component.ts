@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ProductService} from "../../../sevices/product.service";
+import {HouseService} from "../../../sevices/house.service";
 
 @Component({
   selector: 'app-product-create',
@@ -21,7 +21,8 @@ export class ProductCreateComponent implements OnInit {
   urbanDistricts: any;
   users: any;
   status?: false;
-  constructor(private productService: ProductService,
+
+  constructor(private productService: HouseService,
               private fb: FormBuilder) {
   }
 
@@ -48,9 +49,11 @@ export class ProductCreateComponent implements OnInit {
 
   submit() {
     let data = this.formCreateProduct?.value;
-    this.productService.createProduct(data).subscribe(res => {
-      if(!status){
+    this.productService.createHouse(data).subscribe(res => {
+      if (!status) {
         alert('Đăng nhà cho thuê thành công');
+        this.router.navigate(['list']).then();
+        console.log(data);
       } else {
         alert('Thất bại')
       }
