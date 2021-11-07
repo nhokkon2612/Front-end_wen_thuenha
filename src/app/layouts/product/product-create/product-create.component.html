@@ -73,6 +73,7 @@
             <option label="Tên chủ nhà"></option>
             <option *ngFor="let product of products" value="{{product.user_id}}">{{product.user.name}}</option>
           </select>
+          <input type="text" class="form-control" *ngFor="let product of products" value="{{product.user.name}}">
         </div>
         <div class="col-md-12">
           <select data-placeholder="Trạng thái" formControlName="status_id" class="chosen-select-no-single">

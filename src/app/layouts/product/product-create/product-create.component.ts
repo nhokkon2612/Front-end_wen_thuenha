@@ -21,6 +21,7 @@ export class ProductCreateComponent implements OnInit {
   urbanDistricts: any;
   users: any;
   status?: false;
+  user_id: any = localStorage.user;
 
   constructor(private productService: HouseService,
               private fb: FormBuilder) {
@@ -30,6 +31,7 @@ export class ProductCreateComponent implements OnInit {
     this.getList();
     this.getInforForm();
     this.getUser();
+    console.log(this.user_id);
     this.formCreateProduct = this.fb.group({
       title: [''],
       squared_id: [''],
