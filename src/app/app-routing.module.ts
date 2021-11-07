@@ -11,7 +11,8 @@ import {ProductDetailComponent} from './layouts/product/product-detail/product-d
 const routes: Routes = [
 
   {
-    path: '', redirectTo: 'home', pathMatch: 'full',},
+    path: '', redirectTo: 'home', pathMatch: 'full',
+  },
   {
     path: '', component: MasterComponent,
     children: [
