@@ -32,14 +32,13 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.authService.getUserInfo().subscribe(res => {
       this.nameUser = res.name
       this.isCheckLogin = true;
-      console.log(res)
     })
   }
 
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']).then(() => {
-      Swal.fire('Ban đã đăng xuất', 'Vui lòng đăng nhập để trai nghiệm tốt hơn', 'warning')
+      Swal.fire('Bạn đã đăng xuất', 'Vui lòng đăng nhập để trải nghiệm tốt hơn', 'warning')
       setInterval(() => {
         window.location.reload()
       }, 1000)

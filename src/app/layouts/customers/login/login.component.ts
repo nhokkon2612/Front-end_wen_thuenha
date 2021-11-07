@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 })
 export class LoginComponent implements OnInit {
 
+  hide = true;
   formLogin: FormGroup | undefined;
   errorLogin: string = '';
   successLogin: string = '';
@@ -23,13 +24,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.formLogin = this.fb.group({
       "email": ["", [Validators.required, Validators.email]],
-      "password": ["", [Validators.required, Validators.minLength(6), Validators.maxLength(13)]]
-    })
+      "password": ["", [Validators.required, Validators.minLength(6), Validators.maxLength(15)]]
+    });
   }
-
-
   onSubmit() {
     let data = this.formLogin?.value;
+    console.log(data);
     this.loginService.login(data).subscribe(res => {
       if (res.status == 'error') {
         this.errorLogin = res.message;
@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
   get email() {
     return this.formLogin?.get('email')
   }
