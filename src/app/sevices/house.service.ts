@@ -21,27 +21,11 @@ export class HouseService {
   }
 
   getInforForm(): Observable<any> {
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return this.http.get(environment.api_url + 'form', httpOptions);
+    return this.http.get(environment.api_url + 'houses/form');
   }
 
   getUser(): Observable<any> {
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return this.http.get(environment.api_url + 'auth/me', httpOptions);
+    return this.http.get(environment.api_url + 'auth/me');
   }
 
   getDetail(id: number): Observable<any> {

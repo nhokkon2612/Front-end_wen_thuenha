@@ -24,9 +24,7 @@ export class ProductDetailComponent implements OnInit {
 
   getDetails(id: number) {
     this.productService.getDetail(id).subscribe(res => {
-      console.log(res);
       this.product = res
-      console.log('res')
     })
   }
 }

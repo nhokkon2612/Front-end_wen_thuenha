@@ -16,6 +16,9 @@ import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout
 import { httpInterceptorProviders } from './addtoken.interceptor';
 import { ProductCreateComponent } from './layouts/product/product-create/product-create.component';
 import { ProductDetailComponent } from './layouts/product/product-detail/product-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { ProductDetailComponent } from './layouts/product/product-detail/product
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -34,7 +34,7 @@
         <nav id="navigation" class="style-1">
           <ul id="responsive">
 
-            <li><a class="current" routerLink="">Trang chủ</a>
+            <li><a class="home" routerLink="">Trang chủ</a>
             </li>
 
             <li><a routerLink="/houses">Danh sách sản phẩm</a>
@@ -95,21 +95,19 @@
                 <li><a href="icons.html">Icons</a></li>
               </ul>
             </li>
-
           </ul>
         </nav>
         <div class="clearfix"></div>
-
       </div>
       <div class="right-side" *ngIf="!isCheckLogin">
         <div class="header-widget">
-          <a class="sign-in"><i class="fa fa-user"></i> <a routerLink="login">Đăng nhập</a>/<a routerLink="register">Đăng
+          <a class="sign-in"><a routerLink="login">Đăng nhập</a>/<a routerLink="register">Đăng
             kí</a></a>
         </div>
       </div>
       <div class="right-side" *ngIf="isCheckLogin">
         <div class="header-widget">
-          <a class="sign-in"> <a>{{ nameUser }}</a>/<a (click)="logout()" routerLink="login"><i class="fa fa-user"></i>Đăng
+          <a class="sign-in"> <a>Xin chào {{ nameUser }}</a>/<a (click)="logout()" href="#">Đăng
             xuất</a></a>
         </div>
       </div>

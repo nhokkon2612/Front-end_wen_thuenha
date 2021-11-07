@@ -1,0 +1,17 @@
+.header-widget{
+  font-size:20px;
+  font-weight:500;
+}
+.name{
+  color: #6625c2;
+}
+#header{
+  background-color: rgba(230, 225, 254, 0.81);
+}
+.home{
+  font-size:20px !important;
+  font-weight:700 !important;
+}
+.logo{
+  background-image: url(https://adina.com.vn/wp-content/uploads/2021/08/logo-StayHome-hinh-ngoi-nha-1024x683.jpg);
+}

@@ -1,31 +1,4 @@
-<div id="wrapper">
-  <div class="clearfix"></div>
-  <div id="titlebar">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-
-          <h2 style="color:rgb(17, 5, 31);">Đăng kí</h2>
-
-          <!-- Breadcrumbs -->
-          <nav id="breadcrumbs">
-            <ul>
-              <li><a href="http://localhost:4200/">Trang chủ</a></li>
-              <li><a href="http://localhost:4200/login">Đăng nhập</a></li>
-            </ul>
-          </nav>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Contact
-================================================== -->
-
-  <!-- Container -->
-  <div class="container">
+<div class="container">
 
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
@@ -33,9 +6,8 @@
         <div class="my-account style-1 margin-top-5 margin-bottom-40">
           <!-- Register -->
           <div class="tab-content" id="tab2">
-
+            <h1 class="title">Đăng kí</h1>
             <form  (ngSubmit)="submit()" [formGroup]="form">
-
               <div class="form-row form-row-wide">
                 <label for="username2">Tên:
                   <i class="im im-icon-Male"></i>
@@ -110,23 +82,22 @@
                 </div>
               </div>
               <p class="form-row">
-                <button type="submit" class="button border fw margin-top-10" name="register"
+                <button type="submit" class="button border fw margin-top-10" id="register" name="register"
                         >Đăng kí</button>
               </p>
-
             </form>
+            <div class="group"></div>
+            <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
+              Twitter
+            </button>
+            <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
+              Plus
+            </button>
+            <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
+              Facebook
+            </button>
           </div>
-          <button class="button social-login via-twitter"><i class="fa fa-twitter"></i> Đăng nhập với
-            Twitter
-          </button>
-          <button class="button social-login via-gplus"><i class="fa fa-google-plus"></i> Đăng nhập với Google
-            Plus
-          </button>
-          <button class="button social-login via-facebook"><i class="fa fa-facebook"></i> Đăng nhập với
-            Facebook
-          </button>
         </div>
       </div>
     </div>
   </div>
-</div>

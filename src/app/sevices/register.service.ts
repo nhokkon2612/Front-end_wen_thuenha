@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  api_url = 'http://127.0.0.1:8000/api/';
   constructor(private http: HttpClient) { }
 
   register(data:any):Observable<any>{
-    return  this.http.post(this.api_url+'auth/register', data)
+    return  this.http.post(environment.api_url + 'auth/register', data)
   }
 }
