@@ -18,3 +18,8 @@ img{
 .listing-title{
   height: 150px;
 }
+.form-group{
+  width:100%;
+  height: 400px;
+  background-image: url(https://www.kiena.vn/fileserver/images/file/fixsize-1600x400/upload/addon/catbanner/W5abb228657759/banner-project.jpg)
+}

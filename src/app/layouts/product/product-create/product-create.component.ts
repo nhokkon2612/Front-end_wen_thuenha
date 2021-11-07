@@ -53,7 +53,6 @@ export class ProductCreateComponent implements OnInit {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
         this.router.navigate(['list']).then();
-        console.log(data);
       } else {
         alert('Thất bại')
       }
