@@ -1,13 +1,9 @@
-<div class="main-search-container"
-     style="background-image: url(https://msmobile.com.vn/upload_images/images/tai-hinh-nen-nha-dep-cho-may-tinh-4.jpg)">
+<div class="main-search-container">
   <form class="main-search-form" *ngIf="formCreateProduct" [formGroup]="formCreateProduct" (ngSubmit)="submit()">
-    <div class="main-search-box" style="background:rgba(0,0,0,0.5);">
+    <div class="main-search-box" style="">
       <div class="row with-forms">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <input type="text" formControlName="detail_address" placeholder="Nhập địa chỉ">
-        </div>
-        <div class="col-md-2">
-          <button type="submit" class="button">Thêm</button>
         </div>
       </div>
       <div class="row with-forms">
@@ -86,6 +82,15 @@
           <textarea placeholder="Mô tả" formControlName="description"></textarea>
         </div>
       </div>
+      <div class="form-group">
+        <p>Chọn ảnh :</p>
+        <input type="file"
+               id="file"
+               multiple placeholder="Chọn ảnh">
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="button-btn">Thêm nhà</button>
     </div>
   </form>
 </div>

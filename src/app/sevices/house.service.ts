@@ -31,4 +31,5 @@ export class HouseService {
   getDetail(id: number): Observable<any> {
     return this.http.get(environment.api_url + 'houses/' + id + '/detail');
   }
+
 }

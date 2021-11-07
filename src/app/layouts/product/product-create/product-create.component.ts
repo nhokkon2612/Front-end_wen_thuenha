@@ -49,6 +49,7 @@ export class ProductCreateComponent implements OnInit {
 
   submit() {
     let data = this.formCreateProduct?.value;
+    console.log(data);
     this.productService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
@@ -83,5 +84,4 @@ export class ProductCreateComponent implements OnInit {
       this.users = res
     })
   }
-
 }
