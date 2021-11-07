@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, DoCheck {
+export class HeaderComponent implements OnInit {
   isCheckLogin = false;
   nameUser = ''
 
@@ -17,21 +17,16 @@ export class HeaderComponent implements OnInit, DoCheck {
               private router: Router) {
   }
 
-  ngDoCheck(): void {
+  ngOnInit(): void {
     if (localStorage.getItem('token')) {
       this.isCheckLogin = true;
     }
-  }
-
-  ngOnInit(): void {
     this.getInfoUserLogin();
-    this.isCheckLogin = this.authService.checkLogin();
   }
 
   getInfoUserLogin() {
     this.authService.getUserInfo().subscribe(res => {
       this.nameUser = res.name
-      this.isCheckLogin = true;
     })
   }
 

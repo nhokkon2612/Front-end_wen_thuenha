@@ -7,15 +7,9 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  isLogin = false;
   constructor(private http: HttpClient) { }
 
   getUserInfo(): Observable<any> {
     return this.http.post(environment.api_url + 'auth/me', null)
-  }
-
-  checkLogin() {
-    this.isLogin = !!localStorage.getItem('token');
-    return this.isLogin;
   }
 }
