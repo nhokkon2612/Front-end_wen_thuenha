@@ -95,11 +95,9 @@
                 <li><a href="icons.html">Icons</a></li>
               </ul>
             </li>
-
           </ul>
         </nav>
         <div class="clearfix"></div>
-
       </div>
       <div class="right-side" *ngIf="!isCheckLogin">
         <div class="header-widget">
@@ -109,7 +107,7 @@
       </div>
       <div class="right-side" *ngIf="isCheckLogin">
         <div class="header-widget">
-          <a class="sign-in"> <a>{{ nameUser }}</a>/<a (click)="logout()" routerLink="login"><i class="fa fa-user"></i>Đăng
+          <a class="sign-in"> <a>{{ nameUser }}</a>/<a (click)="logout()" href="#"><i class="fa fa-user"></i>Đăng
             xuất</a></a>
         </div>
       </div>

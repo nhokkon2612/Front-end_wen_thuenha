@@ -1,0 +1,21 @@
+h1{
+  text-align: center;
+  font-size:30px;
+  font-weight: 900;
+  color: #094af0;
+}
+form {
+  color: #210e0e;
+}
+.tab-content{
+  background-color: #fbf6f6;
+  width:450px;
+}
+#register{
+  position: relative;
+  bottom:20px;
+  left:285px;
+}
+.group{
+  height:20px;
+}

@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   get f() {
     return this.form.controls;
   }
@@ -54,7 +53,6 @@ export class RegisterComponent implements OnInit {
     let data = this.form.value;
     this.registerService.register(data).subscribe(
       res => {
-        console.log('res')
         if (res.status == 'success') {
           // Swal.fire('Đăng ký thành công','Vui lòng đăng nhập hệ thống','success')
           Swal.fire('Đăng ký thành công','Vui lòng đăng nhập hệ thống','success')

@@ -12,25 +12,23 @@ export class HouseService {
   constructor(private http: HttpClient) {
   }
 
-  api_url = 'http://127.0.0.1:8000/api/';
-
   getList(): Observable<any> {
     return this.http.get(environment.api_url + 'houses');
   }
 
   createHouse(data: any): Observable<any> {
-    return this.http.post(this.api_url + 'create', data);
-  }
-
-  getDetail(id: number): Observable<any> {
-    return this.http.get(this.api_url + 'houses/' + id + '/detail');
+    return this.http.post(environment.api_url + 'houses', data);
   }
 
   getInforForm(): Observable<any> {
-    return this.http.get(this.api_url + 'home/form');
+    return this.http.get(environment.api_url + 'houses/form');
   }
 
   getUser(): Observable<any> {
-    return this.http.get(this.api_url + 'auth/me');
+    return this.http.get(environment.api_url + 'auth/me');
+  }
+
+  getDetail(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'houses/' + id + '/detail');
   }
 }

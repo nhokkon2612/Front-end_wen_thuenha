@@ -1,0 +1,35 @@
+#messageAlert{
+  color: red;
+}
+#password{
+  margin-top:50px
+}
+.col-md-6{
+  margin-top:20px
+}
+.mat-icon{
+  position: relative;
+  top: 53px;
+  left: 260px
+}
+#login{
+  position: relative;
+  left:60px;
+  bottom:10px;
+}
+#changePassword{
+  margin-top:50px;
+}
+.title{
+  text-align: center;
+  font-size:30px;
+  font-weight: 900;
+  color: #094af0;
+}
+form {
+  color: #210e0e;
+}
+.tab-content{
+  background-color: #fbf6f6;
+  width:450px;
+}
