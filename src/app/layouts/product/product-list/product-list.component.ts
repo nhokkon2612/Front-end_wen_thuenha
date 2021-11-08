@@ -7,10 +7,10 @@ import {HouseService} from "../../../sevices/house.service";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: any;
+  houses: any;
   isCheckLogin = false;
 
-  constructor(private productService: HouseService) {
+  constructor(private houseService: HouseService) {
   }
 
   ngOnInit(): void {
@@ -21,8 +21,8 @@ export class ProductListComponent implements OnInit {
   }
 
   getList() {
-    this.productService.getList().subscribe(res => {
-      this.products = res;
+    this.houseService.getList().subscribe(res => {
+      this.houses = res;
     })
   }
 }

@@ -19,6 +19,7 @@ import { ProductDetailComponent } from './layouts/product/product-detail/product
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { HouseEditComponent } from './layouts/product/house-edit/house-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     ProductListComponent,
     UserAccoutComponent,
     ProductCreateComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    HouseEditComponent
   ],
   imports: [
     BrowserModule,

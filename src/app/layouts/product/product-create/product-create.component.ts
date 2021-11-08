@@ -8,8 +8,8 @@ import {HouseService} from "../../../sevices/house.service";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  formCreateProduct?: FormGroup;
-  products: any;
+  formCreateHouse?: FormGroup;
+  houses: any;
   private router: any;
   statuses: any;
   bedRooms: any;
@@ -19,11 +19,11 @@ export class ProductCreateComponent implements OnInit {
   prices: any;
   areas: any;
   urbanDistricts: any;
-  users: any;
+  user: any;
   status?: false;
   user_id: any = localStorage.user;
 
-  constructor(private productService: HouseService,
+  constructor(private houseService: HouseService,
               private fb: FormBuilder) {
   }
 
@@ -32,7 +32,7 @@ export class ProductCreateComponent implements OnInit {
     this.getInforForm();
     this.getUser();
     console.log(this.user_id);
-    this.formCreateProduct = this.fb.group({
+    this.formCreateHouse = this.fb.group({
       title: [''],
       squared_id: [''],
       detail_address: [''],
@@ -50,11 +50,11 @@ export class ProductCreateComponent implements OnInit {
   }
 
   submit() {
-    let data = this.formCreateProduct?.value;
-    this.productService.createHouse(data).subscribe(res => {
+    let data = this.formCreateHouse?.value;
+    this.houseService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
-        this.router.navigate(['list']).then();
+        this.router.navigate(['']).then();
       } else {
         alert('Thất bại')
       }
@@ -62,13 +62,13 @@ export class ProductCreateComponent implements OnInit {
   }
 
   getList() {
-    this.productService.getList().subscribe(res => {
-      this.products = res;
+    this.houseService.getList().subscribe(res => {
+      this.houses = res;
     })
   }
 
   getInforForm() {
-    this.productService.getInforForm().subscribe(res => {
+    this.houseService.getInforForm().subscribe(res => {
       this.statuses = res.allStatus;
       this.bedRooms = res.bedrooms;
       this.bathRooms = res.bathrooms;
@@ -81,8 +81,8 @@ export class ProductCreateComponent implements OnInit {
   }
 
   getUser() {
-    this.productService.getUser().subscribe(res => {
-      this.users = res
+    this.houseService.getUser().subscribe(res => {
+      this.user = res.name;
     })
   }
 
