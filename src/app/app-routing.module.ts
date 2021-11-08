@@ -8,6 +8,8 @@ import {ProductListComponent} from './layouts/product/product-list/product-list.
 import {ProductCreateComponent} from './layouts/product/product-create/product-create.component';
 import {ProductDetailComponent} from './layouts/product/product-detail/product-detail.component';
 import {HouseEditComponent} from "./layouts/product/house-edit/house-edit.component";
+import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
+
 
 const routes: Routes = [
 
@@ -22,6 +24,9 @@ const routes: Routes = [
       },
       {
         path: 'login', component: LoginComponent
+      },
+      {
+        path:'user-accout/update',component: UserAccoutComponent
       },
       {
         path: "register", component: RegisterComponent

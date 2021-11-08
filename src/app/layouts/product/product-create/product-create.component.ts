@@ -24,7 +24,6 @@ export class ProductCreateComponent implements OnInit {
   status?: false;
   user_id: any = localStorage.user;
 
-
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
               private authService: AuthService) {

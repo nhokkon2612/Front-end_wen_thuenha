@@ -15,7 +15,6 @@
 
             <a href="#" class="listing-img-container"
                routerLink="../houses/{{house.id}}/detail">
-
               <div class="listing-badges">
                 <span class="featured">Đặc sắc</span>
                 <span>{{house.homestatus.name}}</span>
@@ -42,12 +41,10 @@
                   <i class="fa fa-map-marker"></i>
                   {{house.detail_address}}
                 </a>
-
                 <a href="../houses/{{house.id}}/update" class="details button border">Sửa thông tin</a>
               </div>
 
               <ul class="listing-details">
-                <
                 <li>{{house.price | currency: 'VND'}}/tháng</li>
                 <li>Loại nhà: {{house.category.name}}</li>
                 <li>Phòng ngủ: {{house.bedroom.name}}</li>
