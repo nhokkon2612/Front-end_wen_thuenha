@@ -3,7 +3,7 @@
     <div class="main-search-box" style="">
       <div class="row with-forms">
         <div class="col-md-12">
-          <input type="text" formControlName="detail_address" placeholder="Nhập địa chỉ">
+          <input type="text" formControlName="detail_address" placeholder="Nhập địa chỉ số nhà,đường">
         </div>
       </div>
       <div class="row with-forms">
@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-4">
           <div class="select-input">
-            <input type="text" formControlName="price" placeholder="Giá cho thuê" data-unit="VNĐ">
+            <input type="number" formControlName="price" placeholder="Giá cho thuê" data-unit="VNĐ">
           </div>
         </div>
       </div>
@@ -61,16 +61,16 @@
         </div>
       </div>
       <div class="row with-forms">
-        <div class="col-md-12">
+        <div class="col-md-8">
           <input type="text" class="form-control" formControlName="title" placeholder="Tiêu đề">
         </div>
-        <div class="col-md-12">
+        <div class="col-md-2">
           <select data-placeholder="Tên chủ nhà" formControlName="user_id" class="chosen-select-no-single">
             <option label="Tên chủ nhà"></option>
-            <option *ngFor="let product of products" value="{{product.user_id}}">{{product.user.name}}</option>
+            <option value="{{users.id}}">{{users.name}}</option>
           </select>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-2">
           <select data-placeholder="Trạng thái" formControlName="status_id" class="chosen-select-no-single">
             <option label="Trạng thái"></option>
             <option *ngFor="let status of statuses" value="{{status.id}}">{{status.name}}</option>
