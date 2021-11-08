@@ -60,11 +60,7 @@
         <h3 class="desc-headline">Miêu tả căn nhà</h3>
         <div>
           <p>
-            Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus.
-            Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit
-            amet rutrum elementum, est elit finibus tellus, ut tristique elit risus at metus. Sed
-            fermentum, lorem vitae efficitur imperdiet, neque velit tristique turpis, et iaculis mi
-            tortor finibus turpis.
+           {{product.description}}
           </p>
         </div>
         <!-- Video -->
@@ -117,7 +113,8 @@
                 </label>
               </p>
             </div>
-            <button class="button book-now fullwidth margin-top-5" type="submit">Xác nhận thuê nhà</button>
+            <button *ngIf="!isCheckLogin" class="button book-now fullwidth margin-top-5" routerLink = "/login">Xác nhận thuê nhà</button>
+            <button *ngIf="isCheckLogin" class="button book-now fullwidth margin-top-5" type="submit">Xác nhận thuê </button>
           </div>
         </div>
       </div>

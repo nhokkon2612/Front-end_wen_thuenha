@@ -1,1 +1,97 @@
-<p>house-edit works!</p>
+<div class="main-search-container">
+  <form class="main-search-form" *ngIf="formEditHouse" [formGroup]="formEditHouse" (ngSubmit)="submit()">
+    <div class="main-search-box" style="">
+      <div class="row with-forms">
+        <div class="col-md-12">
+          <input type="text" formControlName="detail_address" placeholder="Nhập địa chỉ số nhà,đường">
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-6">
+          <select data-placeholder="Quận, huyện" formControlName="district_id" class="chosen-select-no-single">
+            <option label="Quận"></option>
+            <option *ngFor="let urbanDistrict of urbanDistricts"
+                    value="{{urbanDistrict.id}}">{{urbanDistrict.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select data-placeholder="Thành phố" formControlName="city_id" class="chosen-select-no-single">
+            <option label="Thành phố"></option>
+            <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-4">
+          <select data-placeholder="Loại nhà cho thuê" formControlName="category_id" class="chosen-select-no-single">
+            <option label="Loại nhà cho thuê"></option>
+            <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select data-placeholder="Khoảng giá" formControlName="price_id" class="chosen-select-no-single">
+            <option label="Khoảng giá"></option>
+            <option *ngFor="let price of prices" value="{{price.id}}">{{price.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <div class="select-input">
+            <input type="number" formControlName="price" placeholder="Giá cho thuê" data-unit="VNĐ">
+          </div>
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-4">
+          <select data-placeholder="Diện tích" formControlName="squared_id" class="chosen-select-no-single">
+            <option label="Diện tích"></option>
+            <option *ngFor="let area of areas" value="{{area.id}}">{{area.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select data-placeholder="Phòng ngủ" formControlName="bedroom_id" class="chosen-select-no-single">
+            <option label="Phòng ngủ"></option>
+            <option *ngFor="let bedRoom of bedRooms" value="{{bedRoom.id}}">{{bedRoom.name}} Phòng ngủ</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select data-placeholder="Phòng tắm" formControlName="bathroom_id" class="chosen-select-no-single">
+            <option label="Phòng tắm"></option>
+            <option *ngFor="let bathRoom of bathRooms" value="{{bathRoom.id}}">{{bathRoom.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="title" placeholder="Tiêu đề">
+        </div>
+        <div class="col-md-2">
+          <select data-placeholder="Tên chủ nhà" formControlName="user_id" class="chosen-select-no-single">
+            <option label="Tên chủ nhà"></option>
+            <option value="{{user.id}}">{{user.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select data-placeholder="Trạng thái" formControlName="status_id" class="chosen-select-no-single">
+            <option label="Trạng thái"></option>
+            <option *ngFor="let status of statuses" value="{{status.id}}">{{status.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row with-forms">
+        <div class="col-md-12">
+          <textarea placeholder="Mô tả" formControlName="description"></textarea>
+        </div>
+      </div>
+<!--      <div class="form-group">-->
+<!--        <p>Chọn ảnh :</p>-->
+<!--        <input type="file"-->
+<!--               id="file"-->
+<!--               multiple placeholder="Chọn ảnh">-->
+<!--      </div>-->
+      <div>
+        <button type="submit" class="button-btn">Sửa thông tin</button>
+      </div>
+    </div>
+
+  </form>
+</div>

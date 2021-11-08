@@ -31,4 +31,8 @@ export class HouseService {
   getDetail(id: number): Observable<any> {
     return this.http.get(environment.api_url + 'houses/' + id + '/detail');
   }
+
+  editHouse(id: number, data: any): Observable<any> {
+    return this.http.put(environment.api_url + 'houses/' + id + '/update', data);
+  }
 }

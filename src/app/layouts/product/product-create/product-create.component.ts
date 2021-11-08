@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {AuthService} from 'src/app/sevices/auth.service';
 import {HouseService} from "../../../sevices/house.service";
 
 @Component({
@@ -23,8 +24,10 @@ export class ProductCreateComponent implements OnInit {
   status?: false;
   user_id: any = localStorage.user;
 
-  constructor(private houseService: HouseService,
-              private fb: FormBuilder) {
+
+  constructor(private housesService: HouseService,
+              private fb: FormBuilder,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -45,13 +48,13 @@ export class ProductCreateComponent implements OnInit {
       city_id: [''],
       district_id: [''],
       user_id: [''],
-      status_id: [''],
     })
   }
 
   submit() {
     let data = this.formCreateHouse?.value;
-    this.houseService.createHouse(data).subscribe(res => {
+    console.log(data);
+    this.housesService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
         this.router.navigate(['']).then();
@@ -62,13 +65,13 @@ export class ProductCreateComponent implements OnInit {
   }
 
   getList() {
-    this.houseService.getList().subscribe(res => {
+    this.housesService.getList().subscribe(res => {
       this.houses = res;
     })
   }
 
   getInforForm() {
-    this.houseService.getInforForm().subscribe(res => {
+    this.housesService.getInforForm().subscribe(res => {
       this.statuses = res.allStatus;
       this.bedRooms = res.bedrooms;
       this.bathRooms = res.bathrooms;
@@ -81,9 +84,8 @@ export class ProductCreateComponent implements OnInit {
   }
 
   getUser() {
-    this.houseService.getUser().subscribe(res => {
-      this.user = res.name;
+    this.authService.getUserInfo().subscribe(res => {
+      this.user = res;
     })
   }
-
 }

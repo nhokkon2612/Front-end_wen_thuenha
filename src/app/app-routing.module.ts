@@ -7,6 +7,7 @@ import {RegisterComponent} from './layouts/customers/register/register.component
 import {ProductListComponent} from './layouts/product/product-list/product-list.component';
 import {ProductCreateComponent} from './layouts/product/product-create/product-create.component';
 import {ProductDetailComponent} from './layouts/product/product-detail/product-detail.component';
+import {HouseEditComponent} from "./layouts/product/house-edit/house-edit.component";
 
 const routes: Routes = [
 
@@ -36,6 +37,9 @@ const routes: Routes = [
           },
           {
             path: ":id/detail", component: ProductDetailComponent,
+          },
+          {
+            path: ":id/update", component: HouseEditComponent,
           }
         ]
       },
