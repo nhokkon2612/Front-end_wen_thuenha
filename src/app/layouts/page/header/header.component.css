@@ -9,9 +9,27 @@
   background-color: rgba(230, 225, 254, 0.81);
 }
 .home{
-  font-size:20px !important;
+  font-size:30px !important;
   font-weight:700 !important;
 }
-.logo{
-  background-image: url(https://adina.com.vn/wp-content/uploads/2021/08/logo-StayHome-hinh-ngoi-nha-1024x683.jpg);
+.style-1{
+  width:1000px !important;
+  position:relative !important;
+  bottom:50px !important;
+  left:200px !important;
+}
+.home1{
+  font-size:25px !important;
+  font-weight:900 !important;
+}
+.right-side{
+  position:relative !important;
+  top:45px !important;
+  left:200px !important;
+}
+.img{
+  width:12% !important;
+  height:10% !important;
+  position:relative !important;
+  top:5px !important;
 }

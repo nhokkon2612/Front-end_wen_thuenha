@@ -9,8 +9,8 @@ import {HouseService} from "../../../sevices/house.service";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  formCreateProduct?: FormGroup;
-  products: any;
+  formCreateHouses?: FormGroup;
+  houses: any;
   private router: any;
   statuses: any;
   bedRooms: any;
@@ -20,7 +20,7 @@ export class ProductCreateComponent implements OnInit {
   prices: any;
   areas: any;
   urbanDistricts: any;
-  users: any;
+  user: any;
   status?: false;
 
   constructor(private housesService: HouseService,
@@ -32,7 +32,7 @@ export class ProductCreateComponent implements OnInit {
     this.getList();
     this.getInforForm();
     this.getUser();
-    this.formCreateProduct = this.fb.group({
+    this.formCreateHouses = this.fb.group({
       title: [''],
       squared_id: [''],
       detail_address: [''],
@@ -50,8 +50,7 @@ export class ProductCreateComponent implements OnInit {
   }
 
   submit() {
-    let data = this.formCreateProduct?.value;
-    console.log(data);
+    let data = this.formCreateHouses?.value;
     this.housesService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
@@ -64,7 +63,7 @@ export class ProductCreateComponent implements OnInit {
 
   getList() {
     this.housesService.getList().subscribe(res => {
-      this.products = res;
+      this.houses = res;
     })
   }
 
@@ -83,7 +82,7 @@ export class ProductCreateComponent implements OnInit {
 
   getUser() {
     this.authService.getUserInfo().subscribe(res => {
-      this.users = res ;
+      this.user = res ;
     })
   }
 }
