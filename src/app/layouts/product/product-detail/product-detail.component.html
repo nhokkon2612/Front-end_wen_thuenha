@@ -113,8 +113,8 @@
                 </label>
               </p>
             </div>
-            <button *ngIf="!isCheckLogin" class="button book-now fullwidth margin-top-5" routerLinkActive="login"  type="submit">Xác nhận thuê nhà</button>
-            <button *ngIf="isCheckLogin" class="button book-now fullwidth margin-top-5" type="submit">Xác nhận thuê</button>
+            <button *ngIf="!isCheckLogin" class="button book-now fullwidth margin-top-5" routerLink = "/login">Xác nhận thuê nhà</button>
+            <button *ngIf="isCheckLogin" class="button book-now fullwidth margin-top-5" type="submit">Xác nhận thuê </button>
           </div>
         </div>
       </div>
