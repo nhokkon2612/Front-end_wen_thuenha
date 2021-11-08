@@ -1,5 +1,5 @@
 <div class="main-search-container">
-  <form class="main-search-form" *ngIf="formCreateHouses" [formGroup]="formCreateHouses" (ngSubmit)="submit()">
+  <form class="main-search-form" *ngIf="formCreateHouse" [formGroup]="formCreateHouse" (ngSubmit)="submit()">
     <div class="main-search-box" style="">
       <div class="row with-forms">
         <div class="col-md-12">
@@ -64,16 +64,10 @@
         <div class="col-md-8">
           <input type="text" class="form-control" formControlName="title" placeholder="Tiêu đề">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
           <select data-placeholder="Tên chủ nhà" formControlName="user_id" class="chosen-select-no-single">
             <option label="Tên chủ nhà"></option>
             <option value="{{user.id}}">{{user.name}}</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <select data-placeholder="Trạng thái" formControlName="status_id" class="chosen-select-no-single">
-            <option label="Trạng thái"></option>
-            <option *ngFor="let status of statuses" value="{{status.id}}">{{status.name}}</option>
           </select>
         </div>
       </div>
@@ -91,5 +85,6 @@
         <button type="submit" class="button-btn">Thêm nhà</button>
       <button type="submit" class="button-btb">Quay lại</button>
     </div>
+
   </form>
 </div>

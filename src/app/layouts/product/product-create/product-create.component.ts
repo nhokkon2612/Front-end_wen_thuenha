@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import { AuthService } from 'src/app/sevices/auth.service';
+import {AuthService} from 'src/app/sevices/auth.service';
 import {HouseService} from "../../../sevices/house.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {HouseService} from "../../../sevices/house.service";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  formCreateHouses?: FormGroup;
+  formCreateHouse?: FormGroup;
   houses: any;
   private router: any;
   statuses: any;
@@ -22,6 +22,7 @@ export class ProductCreateComponent implements OnInit {
   urbanDistricts: any;
   user: any;
   status?: false;
+  user_id: any = localStorage.user;
 
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
@@ -32,7 +33,8 @@ export class ProductCreateComponent implements OnInit {
     this.getList();
     this.getInforForm();
     this.getUser();
-    this.formCreateHouses = this.fb.group({
+    console.log(this.user_id);
+    this.formCreateHouse = this.fb.group({
       title: [''],
       squared_id: [''],
       detail_address: [''],
@@ -45,16 +47,16 @@ export class ProductCreateComponent implements OnInit {
       city_id: [''],
       district_id: [''],
       user_id: [''],
-      status_id: [''],
     })
   }
 
   submit() {
-    let data = this.formCreateHouses?.value;
+    let data = this.formCreateHouse?.value;
+    console.log(data);
     this.housesService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
-        this.router.navigate(['list']).then();
+        this.router.navigate(['']).then();
       } else {
         alert('Thất bại')
       }
@@ -82,7 +84,7 @@ export class ProductCreateComponent implements OnInit {
 
   getUser() {
     this.authService.getUserInfo().subscribe(res => {
-      this.user = res ;
+      this.user = res;
     })
   }
 }

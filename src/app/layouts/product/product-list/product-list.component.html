@@ -11,52 +11,49 @@
         <div class="listings-container list-layout">
 
           <!-- Listing Item -->
-          <div class="listing-item" *ngFor="let product of products">
+          <div class="listing-item" *ngFor="let house of houses">
 
             <a href="#" class="listing-img-container"
-               routerLink="../houses/{{product.id}}/detail">
-
+               routerLink="../houses/{{house.id}}/detail">
               <div class="listing-badges">
                 <span class="featured">Đặc sắc</span>
-                <span>{{product.homestatus.name}}</span>
+                <span>{{house.homestatus.name}}</span>
               </div>
 
               <div class="listing-img-content">
-                <span class="listing-price"><i>{{product.price | currency: 'VND'}} / tháng</i></span>
+                <span class="listing-price"><i>{{house.price | currency: 'VND'}} / tháng</i></span>
                 <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
                 <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
               </div>
 
               <div class="listing-carousel">
-                <div *ngFor="let media of product.media"><img src="{{media.content}}" alt=""></div>
+                <div *ngFor="let media of house.media"><img src="{{media.content}}" alt=""></div>
               </div>
             </a>
 
             <div class="listing-content">
 
               <div class="listing-title">
-                <h4><a href="" routerLink="../houses/{{product.id}}/detail">{{product.title}}</a></h4>
+                <h4><a href="" routerLink="../houses/{{house.id}}/detail">{{house.title}}</a></h4>
                 <a
                   href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
                   class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
-                  {{product.detail_address}}
+                  {{house.detail_address}}
                 </a>
-
-                <a href="single-property-page-1.html" class="details button border">Details</a>
+                <a href="../houses/{{house.id}}/update" class="details button border">Sửa thông tin</a>
               </div>
 
               <ul class="listing-details">
-                <
-                <li>{{product.price | currency: 'VND'}}/tháng</li>
-                <li>Loại nhà: {{product.category.name}}</li>
-                <li>Phòng ngủ: {{product.bedroom.name}}</li>
-                <li>Phòng tắm: {{product.bathroom.name}}</li>
+                <li>{{house.price | currency: 'VND'}}/tháng</li>
+                <li>Loại nhà: {{house.category.name}}</li>
+                <li>Phòng ngủ: {{house.bedroom.name}}</li>
+                <li>Phòng tắm: {{house.bathroom.name}}</li>
               </ul>
 
               <div class="listing-footer">
-                <a href="#"><i class="fa fa-user"></i> {{product.user.name}}</a>
-                <span><i class="fa fa-calendar-o"></i> {{product.user.created_at}}</span>
+                <a href="#"><i class="fa fa-user"></i> {{house.user.name}}</a>
+                <span><i class="fa fa-calendar-o"></i> {{house.user.created_at}}</span>
               </div>
             </div>
           </div>

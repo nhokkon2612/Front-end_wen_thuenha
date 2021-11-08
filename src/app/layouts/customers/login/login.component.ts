@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         this.errorLogin = res.message;
       } else {
         this.successLogin = res.message;
+        localStorage.setItem('user',JSON.stringify(res.user_infor));
         localStorage.setItem('token', res.access_token);
         this.router.navigate(['']).then(() => {
           Swal.fire("Chào mừng", 'Bạn đã đăng nhập thành công', "success")

@@ -7,7 +7,7 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class HouseService {
-  private products: any = [];
+  private houses: any = [];
 
   constructor(private http: HttpClient) {
   }
@@ -25,11 +25,15 @@ export class HouseService {
   }
 
   getUser(): Observable<any> {
-    return this.http.get(environment.api_url + 'auth/me');
+    return this.http.post(environment.api_url + 'auth/me', null);
   }
 
   getDetail(id: number): Observable<any> {
     return this.http.get(environment.api_url + 'houses/' + id + '/detail');
+  }
+
+  editHouse(id: number, data: any): Observable<any> {
+    return this.http.put(environment.api_url + 'houses/' + id + '/update', data);
   }
 
 }
