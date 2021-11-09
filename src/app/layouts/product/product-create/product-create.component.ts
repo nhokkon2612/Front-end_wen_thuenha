@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from 'src/app/sevices/auth.service';
 import {HouseService} from "../../../sevices/house.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-create',
@@ -11,7 +12,6 @@ import {HouseService} from "../../../sevices/house.service";
 export class ProductCreateComponent implements OnInit {
   formCreateHouse?: FormGroup;
   houses: any;
-  private router: any;
   statuses: any;
   bedRooms: any;
   bathRooms: any;
@@ -26,7 +26,8 @@ export class ProductCreateComponent implements OnInit {
 
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -56,7 +57,7 @@ export class ProductCreateComponent implements OnInit {
     this.housesService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
-        this.router.navigate(['']).then();
+        this.router.navigate(['/houses']).then();
       } else {
         alert('Thất bại')
       }

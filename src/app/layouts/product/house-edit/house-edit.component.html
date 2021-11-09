@@ -1,6 +1,7 @@
-<div class="main-search-container">
+<div class="main-search-container" id="backgroundForm">
   <form class="main-search-form" *ngIf="formEditHouse" [formGroup]="formEditHouse" (ngSubmit)="submit()">
     <div class="main-search-box" style="">
+      <h2>Cập nhật thông tin</h2>
       <div class="row with-forms">
         <div class="col-md-12">
           <input type="text" formControlName="detail_address" placeholder="Nhập địa chỉ số nhà,đường">
@@ -82,12 +83,12 @@
           <textarea placeholder="Mô tả" formControlName="description"></textarea>
         </div>
       </div>
-<!--      <div class="form-group">-->
-<!--        <p>Chọn ảnh :</p>-->
-<!--        <input type="file"-->
-<!--               id="file"-->
-<!--               multiple placeholder="Chọn ảnh">-->
-<!--      </div>-->
+      <div class="form-group">
+        <p>Chọn ảnh :</p>
+        <input type="file"
+               id="file"
+               multiple placeholder="Chọn ảnh">
+      </div>
       <div>
         <button type="submit" class="button-btn">Sửa thông tin</button>
       </div>
