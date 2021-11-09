@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {HouseService} from "../../../sevices/house.service";
 import {AuthService} from "../../../sevices/auth.service";
+import {ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-house-edit',
@@ -11,7 +12,6 @@ import {AuthService} from "../../../sevices/auth.service";
 export class HouseEditComponent implements OnInit {
   formEditHouse?: FormGroup;
   houses: any;
-  private router?: any;
   statuses: any;
   bedRooms: any;
   bathRooms: any;
@@ -23,11 +23,14 @@ export class HouseEditComponent implements OnInit {
   user: any;
   status?: false;
   user_id: any = localStorage.user;
-  id = +this.router.snapshot.paramMap.get('id');
+  // @ts-ignore
+  id = +this.routers.snapshot.paramMap.get('id');
 
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private routers:ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -59,6 +62,11 @@ export class HouseEditComponent implements OnInit {
         price_id: res.price_id,
         price: res.price,
         category_id: res.category_id,
+        description: res.description,
+        city_id: res.city_id,
+        district_id: res.district_id,
+        user_id: res.user_id,
+        status_id: res.status_id
       })
     })
   }
@@ -70,7 +78,7 @@ export class HouseEditComponent implements OnInit {
     this.housesService.editHouse(id, data).subscribe(res => {
       if (!status) {
         alert('Cập nhật thông tin nhà cho thuê thành công');
-        this.router.navigate(['']).then();
+        this.router.navigate(['/houses']).then();
       } else {
         alert('Thất bại')
       }

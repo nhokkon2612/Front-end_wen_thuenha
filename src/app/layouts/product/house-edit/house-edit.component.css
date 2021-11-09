@@ -1,0 +1,16 @@
+#backgroundForm{
+  background-image: url("https://www.wallpapertip.com/wmimgs/226-2263204_home-images-house-design-image-photos-pics-picture.jpg");
+                                                                                                                  }
+h2{
+  color: black;
+}
+
+.button-btn{
+  width:150px;
+  height:50px;
+  margin-top:30px;
+  background-color: green;
+  font-size:18px;
+  font-weight: 800;
+  color: rgba(252, 248, 248, 0.88);
+}
