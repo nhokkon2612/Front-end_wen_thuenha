@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {HouseService} from "../../../sevices/house.service";
 import {AuthService} from "../../../sevices/auth.service";
-import {ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-house-edit',
@@ -29,7 +29,7 @@ export class HouseEditComponent implements OnInit {
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
               private authService: AuthService,
-              private routers:ActivatedRoute,
+              private routers: ActivatedRoute,
               private router: Router) {
   }
 
@@ -51,6 +51,7 @@ export class HouseEditComponent implements OnInit {
       district_id: [''],
       user_id: [''],
       status_id: [''],
+      image: ['']
     })
     this.housesService.getDetail(this.id).subscribe(res => {
       this.formEditHouse?.setValue({
@@ -66,7 +67,8 @@ export class HouseEditComponent implements OnInit {
         city_id: res.city_id,
         district_id: res.district_id,
         user_id: res.user_id,
-        status_id: res.status_id
+        status_id: res.status_id,
+        image: res.image
       })
     })
   }
