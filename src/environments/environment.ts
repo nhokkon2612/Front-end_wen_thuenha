@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://127.0.0.1:8000/api/'
+  api_url: 'http://127.0.0.1:8000/api/',
+  firebaseConfig: {
+    apiKey: "AIzaSyC946qV70Sf8WwoMTZ2j8SGqJL40VZSFGw",
+    authDomain: "project-module-5-ef8fb.firebaseapp.com",
+    databaseURL: "https://project-module-5-ef8fb-default-rtdb.firebaseio.com",
+    projectId: "project-module-5-ef8fb",
+    storageBucket: "project-module-5-ef8fb.appspot.com",
+    messagingSenderId: "163399552426",
+    appId: "1:163399552426:web:7b5a88652c54d4f2726fd3",
+    measurementId: "G-NRYSVMRJVT"
+  }
 };
 
 /*

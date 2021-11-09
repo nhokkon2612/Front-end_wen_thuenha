@@ -23,6 +23,7 @@ export class ProductCreateComponent implements OnInit {
   user: any;
   status?: false;
   user_id: any = localStorage.user;
+  image = '';
 
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
@@ -34,7 +35,6 @@ export class ProductCreateComponent implements OnInit {
     this.getList();
     this.getInforForm();
     this.getUser();
-    console.log(this.user_id);
     this.formCreateHouse = this.fb.group({
       title: [''],
       squared_id: [''],
@@ -48,12 +48,13 @@ export class ProductCreateComponent implements OnInit {
       city_id: [''],
       district_id: [''],
       user_id: [''],
+      image: ['']
     })
   }
 
   submit() {
+    this.formCreateHouse?.controls.image.setValue(this.image);
     let data = this.formCreateHouse?.value;
-    console.log(data);
     this.housesService.createHouse(data).subscribe(res => {
       if (!status) {
         alert('Đăng nhà cho thuê thành công');
@@ -87,5 +88,9 @@ export class ProductCreateComponent implements OnInit {
     this.authService.getUserInfo().subscribe(res => {
       this.user = res;
     })
+  }
+
+  uploadImage(event: string) {
+    this.image = event;
   }
 }

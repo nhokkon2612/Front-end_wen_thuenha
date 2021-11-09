@@ -12,22 +12,19 @@
 
           <!-- Listing Item -->
           <div class="listing-item" *ngFor="let house of houses">
-
             <a href="#" class="listing-img-container"
                routerLink="../houses/{{house.id}}/detail">
               <div class="listing-badges">
                 <span class="featured">Đặc sắc</span>
                 <span>{{house.homestatus.name}}</span>
               </div>
-
               <div class="listing-img-content">
                 <span class="listing-price"><i>{{house.price | currency: 'VND'}} / tháng</i></span>
                 <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
                 <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
               </div>
-
               <div class="listing-carousel">
-                <div *ngFor="let media of house.media"><img src="{{media.content}}" alt=""></div>
+                <div><img src="{{house.image}}" alt=""></div>
               </div>
             </a>
 
