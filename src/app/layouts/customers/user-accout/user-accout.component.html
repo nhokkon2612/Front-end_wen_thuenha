@@ -1,2 +1,46 @@
-<h1>USER ACCOUNT</h1>
-
+<div class="background"></div>
+<form >
+  <div class="widget">
+    <div id="booking-widget-anchor" class="boxed-widget booking-widget margin-top-35">
+      <h3>Cập nhật thông tin người dùng</h3>
+      <div class="row with-forms  margin-top-0">
+        <p class="form-row form-row-wide">
+          <label>Tên :
+            <input type='text' class="form-control" placeholder="{{user.name}}"/>
+          </label>
+        </p>
+        <p class="form-row form-row-wide">
+          <label>Giới tính :
+            <input type='text' class="form-control" />
+          </label>
+        </p>
+        <p class="form-row form-row-wide">
+          <label>Email :
+            <input type='text' class="form-control" placeholder="{{user.email}}"/>
+          </label>
+        </p>
+        <p class="form-row form-row-wide">
+          <label>Số điện thoại :
+            <input type='text' class="form-control"/>
+          </label>
+        </p>
+        <p class="form-row form-row-wide">
+          <label>Địa chỉ:
+            <input type='text' class="form-control"/>
+          </label>
+        </p>
+        <p class="form-row form-row-wide">
+          <label class="datetimepicker">Thời gian bạn đến ở:
+            <input type="date" id="date" class="form-control">
+          </label>
+        </p>
+        <div class="form-group">
+          <p>Chọn ảnh :</p>
+          <app-upload (giveURLtoCreate)="uploadImage($event)"></app-upload>
+        </div>
+      </div>
+      <button *ngIf="!isCheckLogin" class="button book-now fullwidth margin-top-5" routerLink = "/login">Hoàn thành</button>
+      <button *ngIf="isCheckLogin" class="button book-now fullwidth margin-top-5">Cập nhật</button>
+    </div>
+  </div>
+</form>

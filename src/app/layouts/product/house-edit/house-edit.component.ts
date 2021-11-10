@@ -25,6 +25,7 @@ export class HouseEditComponent implements OnInit {
   user_id: any = localStorage.user;
   // @ts-ignore
   id = +this.routers.snapshot.paramMap.get('id');
+  image = '';
 
   constructor(private housesService: HouseService,
               private fb: FormBuilder,
@@ -74,6 +75,7 @@ export class HouseEditComponent implements OnInit {
   }
 
   submit() {
+    this.formEditHouse?.controls.image.setValue(this.image);
     let id = this.id;
     let data = this.formEditHouse?.value;
     console.log(data);
@@ -112,4 +114,7 @@ export class HouseEditComponent implements OnInit {
     })
   }
 
+  uploadImage(event: string) {
+    this.image = event;
+  }
 }

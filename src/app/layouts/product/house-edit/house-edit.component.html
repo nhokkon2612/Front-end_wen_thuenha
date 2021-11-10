@@ -85,14 +85,12 @@
       </div>
       <div class="form-group">
         <p>Chọn ảnh :</p>
-        <input type="file"
-               id="file"
-               formControlName="image"
-               multiple placeholder="Chọn ảnh">
+        <app-upload (giveURLtoCreate)="uploadImage($event)"></app-upload>
       </div>
       <div>
         <button type="submit" class="button-btn">Sửa thông tin</button>
       </div>
+
     </div>
 
   </form>
