@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "firebase": "^9.4.0",
+    "intl": "^1.2.5",
     "node-pre-gyp": "^0.17.0",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.1.9",

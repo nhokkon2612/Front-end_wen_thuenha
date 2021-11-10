@@ -35,5 +35,4 @@ export class HouseService {
   editHouse(id: number, data: any): Observable<any> {
     return this.http.put(environment.api_url + 'houses/' + id + '/update', data);
   }
-
 }

@@ -4,11 +4,12 @@ import {LoginComponent} from './layouts/customers/login/login.component';
 import {MasterComponent} from './layouts/page/master/master.component';
 import {HomeComponent} from "./layouts/page/home/home.component";
 import {RegisterComponent} from './layouts/customers/register/register.component';
-import {ProductListComponent} from './layouts/product/product-list/product-list.component';
-import {ProductCreateComponent} from './layouts/product/product-create/product-create.component';
-import {ProductDetailComponent} from './layouts/product/product-detail/product-detail.component';
 import {HouseEditComponent} from "./layouts/product/house-edit/house-edit.component";
 import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
+import {HouseListComponent} from "./layouts/product/house-list/house-list.component";
+import {HouseCreateComponent} from "./layouts/product/house-create/house-create.component";
+import { HouseDetailComponent } from './layouts/product/house-detail/house-detail.component';
+import { ContractComponent } from './layouts/contract/contract.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,10 @@ const routes: Routes = [
         path: 'login', component: LoginComponent
       },
       {
-        path:'user-accout/update',component: UserAccoutComponent
+        path:'user/update',component: UserAccoutComponent
+      },
+      {
+        path:'contract', component: ContractComponent,
       },
       {
         path: "register", component: RegisterComponent
@@ -35,13 +39,13 @@ const routes: Routes = [
         path: 'houses',
         children: [
           {
-            path: "", component: ProductListComponent,
+            path: "", component: HouseListComponent,
           },
           {
-            path: "create", component: ProductCreateComponent,
+            path: "create", component: HouseCreateComponent,
           },
           {
-            path: ":id/detail", component: ProductDetailComponent,
+            path: ":id/detail", component: HouseDetailComponent,
           },
           {
             path: ":id/update", component: HouseEditComponent,

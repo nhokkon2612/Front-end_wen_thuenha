@@ -1,0 +1,90 @@
+<div id="titlebar" class="property-titlebar margin-bottom-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="" class="back-to-listings"></a>
+        <div class="property-title">
+          <h2>{{house.title}}<span class="property-badge">{{house.homestatus.name}}</span></h2>
+          <span>
+						<a href="#" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+              {{house.detail_address}}
+						</a>
+					</span>
+        </div>
+        <div class="property-pricing">
+          <div class="sub-price">{{house.price | currency: 'VND'}} / Tháng</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+  <div class="row margin-bottom-50">
+    <div class="col-md-12" >
+      <!-- Slider -->
+      <div class="property-slider">
+        <a href="{{house.image}}" style="background-image: url('{{house.image}}')"
+           class="item mfp-gallery"></a>
+      </div>
+      <!-- Slider Thumbs -->
+      <div class="property-slider-nav">
+        <div class="item"><img src="{{house.image}}" alt=""></div>
+      </div>
+    </div>
+    `
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <!-- Property Description -->
+    <div class="col-lg-8 col-md-7 sp-content">
+      <div class="property-description">
+
+        <!-- Main Features -->
+        <ul class="property-main-features">
+          <li>Diện tích <span>{{house.levelsquared.name}} m2</span></li>
+          <li>Loại nhà đất <span>{{house.category.name}}</span></li>
+          <li>Phòng ngủ <span>{{house.bedroom.name}}</span></li>
+          <li>Phòng tắm <span>{{house.bathroom.name}}</span></li>
+        </ul>
+        <a href="" class="button margin-top-25" routerLink="../../../user/update">Thuê nhà này</a>
+        <a href="" class="button margin-top-25" style="background-color: whitesmoke !important;color: black" routerLink="">Quay lại</a>
+        <a href="" class="details button border">Sửa thông tin</a>
+        <!-- Description -->
+        <h3 class="desc-headline">Miêu tả căn nhà</h3>
+        <div>
+          <p>
+            {{house.description}}
+          </p>
+        </div>
+        <!-- Video -->
+        <h3 class="desc-headline no-border">Video</h3>
+        <div class="responsive-iframe">
+          <iframe width="560" height="315"
+                  src="https://www.youtube-nocookie.com/embed/UPBJKppEXoQ?rel=0&amp;showinfo=0"
+                  frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 sp-sidebar">
+      <div class="sidebar sticky right">
+        <div class="widget margin-bottom-30">
+          <button class="widget-button with-tip" data-tip-content="Print"><i
+            class="sl sl-icon-printer"></i></button>
+          <button class="widget-button with-tip" data-tip-content="Add to Bookmarks"><i
+            class="fa fa-star-o"></i></button>
+          <button class="widget-button with-tip compare-widget-button" data-tip-content="Add to Compare">
+            <i class="icon-compare"></i></button>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
