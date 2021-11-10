@@ -1,0 +1,60 @@
+<div class="form-group"></div>
+<div class="forms"></div>
+<div id="wrapper">
+  <div class="container">
+    <div class="row fullwidth-layout">
+      <!-- Sorting / Layout Switcher -->
+      <div class="row margin-bottom-15">
+        <a *ngIf="isCheckLogin" class="more-search-options-trigger margin-top-10" routerLink="../houses/create">Đăng nhà
+          cho thuê</a>
+        <!-- Listings -->
+        <div class="listings-container list-layout">
+          <!-- Listing Item -->
+          <div class="listing-item" *ngFor="let house of houses">
+            <a href="#" class="listing-img-container"
+               routerLink="../houses/{{house.id}}/detail">
+              <div class="listing-badges">
+                <span class="featured">Đặc sắc</span>
+                <span>{{house.homestatus.name}}</span>
+              </div>
+              <div class="listing-img-content">
+                <span class="listing-price"><i>{{house.price | currency: 'VND'}} / tháng</i></span>
+                <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
+                <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
+              </div>
+              <div class="listing-carousel">
+                <div><img src="{{house.image}}" alt=""></div>
+              </div>
+            </a>
+
+            <div class="listing-content">
+
+              <div class="listing-title">
+                <h4><a href="" routerLink="../houses/{{house.id}}/detail">{{house.title}}</a></h4>
+                <a
+                  href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                  class="listing-address popup-gmaps">
+                  <i class="fa fa-map-marker"></i>
+                  {{house.detail_address}}
+                </a>
+                <a href="../houses/{{house.id}}/update" class="details button border">Sửa thông tin</a>
+              </div>
+
+              <ul class="listing-details">
+                <li>{{house.price | currency: 'VND'}}/tháng</li>
+                <li>Loại nhà: {{house.category.name}}</li>
+                <li>Phòng ngủ: {{house.bedroom.name}}</li>
+                <li>Phòng tắm: {{house.bathroom.name}}</li>
+              </ul>
+
+              <div class="listing-footer">
+                <a href="#"><i class="fa fa-user"></i> {{house.user.name}}</a>
+                <span><i class="fa fa-calendar-o"></i> {{house.user.created_at}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
