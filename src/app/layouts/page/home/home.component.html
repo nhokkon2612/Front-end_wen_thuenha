@@ -3,106 +3,160 @@
   <div class="row">
     <div class="col-md-12">
       <h3></h3>
-      <div class="main-search-box no-shadow">
-        <div class="row with-forms">
-          <div class="col-md-3">
-            <select data-placeholder="Loại nhà thuê" class="chosen-select-no-single">
-              <option>Bất kỳ loại nào</option>
-              <option>Căn hộ</option>
-              <option>Nhà ở</option>
-            </select>
+      <form class="main-search-form" *ngIf="formSearchHouse" [formGroup]="formSearchHouse">
+        <div class="main-search-box no-shadow">
+          <div class="row with-forms">
+            <div class="col-md-3">
+              <select data-placeholder="Loại nhà cho thuê" class="chosen-select-no-single">
+                <option>Loại nhà cho thuê</option>
+                <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select data-placeholder="Tỉnh, thành" class="chosen-select-no-single"
+                      (change)="search($event)">
+                <option>Tỉnh, thành</option>
+                <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+              </select>
+            </div>
           </div>
-          <div class="col-md-3">
-            <select data-placeholder="Thành phố" class="chosen-select-no-single">
-              <option>Hà Nội</option>
-              <option>Căn hộ</option>
-              <option>Nhà ở</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <div class="main-search-input">
-              <input type="text" placeholder="Nhập địa chỉ, ví dụ:thành phố hoặc quận" value=""/>
+          <div class="row with-forms">
+            <div class="col-md-3">
+              <select data-placeholder="Diện tích" class="chosen-select-no-single" (change)="search($event)">
+                <option label="Chọn diện tích"></option>
+                <option>Diện tích bất kì</option>
+                <option *ngFor="let area of areas" value="{{area.id}}">{{area.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select data-placeholder="Quận, huyện" class="chosen-select-no-single" (change)="search($event)">
+                <option label="Quận, huyện"></option>
+                <option *ngFor="let district of urbanDistricts" value="{{district.id}}">{{district.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select data-placeholder="Số phòng ngủ" class="chosen-select-no-single" (change)="search($event)">
+                <option label="Số phòng ngủ"></option>
+                <option>Phòng ngủ</option>
+                <option *ngFor="let bedRoom of bedRooms" value="{{bedRoom.id}}">{{bedRoom.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select data-placeholder="Số phòng tắm" class="chosen-select-no-single" (change)="search($event)">
+                <option label="Số phòng tắm"></option>
+                <option>Phòng tắm</option>
+                <option *ngFor="let bathRoom of bathRooms" value="{{bathRoom.id}}">{{bathRoom.name}}</option>
+              </select>
             </div>
           </div>
         </div>
-        <div class="row with-forms">
-          <div class="col-md-3">
-            <select data-placeholder="Diện tích" class="chosen-select-no-single">
-              <option label="Chọn diện tích"></option>
-              <option>Diện tích bất kì</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <select data-placeholder="Số tiền" class="chosen-select-no-single">
-              <option label="Chọn số tiền"></option>
-              <option>Giá tiền bất kì</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <select data-placeholder="Số phòng ngủ" class="chosen-select-no-single">
-              <option label="Số phòng ngủ"></option>
-              <option>Phòng ngủ</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <select data-placeholder="Số nhà tắm" class="chosen-select-no-single">
-              <option label="Số nhà tắm"></option>
-              <option>Nhà tắm</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <h3 class="search-title"><button class="button">Tìm kiếm</button></h3>
+      </form>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="!isCheckSearch">
   <div class="row fullwidth-layout">
     <div class="col-md-12">
       <div class="listings-container grid-layout-three">
-        <div class="listing-item" *ngFor="let product of products">
-          <a routerLink="../houses/{{product.id}}/detail" class="listing-img-container">
+        <div class="listing-item" *ngFor="let house of houses">
+          <a routerLink="../houses/{{house.id}}/detail" class="listing-img-container">
             <div class="listing-badges">
               <span class="featured">Đặc sắc</span>
-              <span>{{product.homestatus.name}}</span>
+              <span>{{house.homestatus.name}}</span>
             </div>
             <div class="listing-img-content">
               <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
               <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
             </div>
             <div class="listing-carousel">
-              <div><img src="{{product.image}}" alt=""></div>
+              <div><img src="{{house.image}}" alt=""></div>
             </div>
           </a>
           <div class="listing-content">
             <div class="listing-title">
-              <h4><a routerLink="../houses/{{product.id}}/detail">{{product.title}}</a></h4>
+              <h4><a routerLink="../houses/{{house.id}}/detail">{{house.title}}</a></h4>
               <a
-                href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&h...+Kingdom"
                 class="listing-address popup-gmaps">
                 <i class="fa fa-map-marker"></i>
-                {{product.detail_address}}
+                {{house.detail_address}}, {{house.district.name}}, {{house.city.name}}
               </a>
             </div>
             <ul class="listing-details">
-              <li>{{product.price | currency: 'VND'}}/tháng</li>
-              <li>Loại nhà: {{product.category.name}}</li>
-              <li>Phòng ngủ: {{product.bedroom.name}}</li>
-              <li>Phòng tắm: {{product.bathroom.name}}</li>
+              <li>{{house.price | currency: 'VND'}}/tháng</li>
+              <li>Loại nhà: {{house.category.name}}</li>
+              <li>Phòng ngủ: {{house.bedroom.name}}</li>
+              <li>Phòng tắm: {{house.bathroom.name}}</li>
+
             </ul>
             <div class="listing-footer">
-              <a href="#"><i class="fa fa-user"></i> {{product.user.name}}</a>
-              <span><i class="fa fa-calendar-o"></i> {{product.user.created_at}}</span>
+              <a href="#"><i class="fa fa-user"></i> {{house.user.name}}</a>
+              <span><i class="fa fa-calendar-o"></i> {{house.user.created_at}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="pagination-container margin-top-20">
+        <nav class="pagination">
+          <ul>
+            <li><a href="#" class="current-page">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li class="blank">...</li>
+            <li><a href="#">22</a></li>
+          </ul>
+        </nav>
+        <nav class="pagination-next-prev">
+          <ul>
+            <li><a href="#" class="prev">Previous</a></li>
+            <li><a href="#" class="next">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIST SEARCH -->
+<div class="container" *ngIf="isCheckSearch">
+  <div class="row fullwidth-layout">
+    <div class="col-md-12">
+      <div class="listings-container grid-layout-three">
+        <h1>PAGE SEARCH</h1>
+        <div class="listing-item" *ngFor="let house of housesSearch">
+          <a routerLink="../houses/{{house.id}}/detail" class="listing-img-container">
+            <div class="listing-badges">
+              <span class="featured">Đặc sắc</span>
+              <span>{{house.homestatus.name}}</span>
+            </div>
+            <div class="listing-img-content">
+              <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
+              <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
+            </div>
+            <div class="listing-carousel">
+              <div><img src="{{house.image}}" alt=""></div>
+            </div>
+          </a>
+          <div class="listing-content">
+            <div class="listing-title">
+              <h4><a routerLink="../houses/{{house.id}}/detail">{{house.title}}</a></h4>
+              <a
+                href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&h...+Kingdom"
+                class="listing-address popup-gmaps">
+                <i class="fa fa-map-marker"></i>
+                {{house.detail_address}}, {{house.district.name}}, {{house.city.name}}
+              </a>
+            </div>
+            <ul class="listing-details">
+              <li>{{house.price | currency: 'VND'}}/tháng</li>
+              <li>Loại nhà: {{house.category.name}}</li>
+              <li>Phòng ngủ: {{house.bedroom.name}}</li>
+              <li>Phòng tắm: {{house.bathroom.name}}</li>
+            </ul>
+            <div class="listing-footer">
+              <a href="#"><i class="fa fa-user"></i> {{house.user.name}}</a>
+              <span><i class="fa fa-calendar-o"></i> {{house.user.created_at}}</span>
             </div>
           </div>
         </div>
@@ -210,6 +264,141 @@
     </div>
   </div>
 </section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="headline centered margin-bottom-35 margin-top-10">Địa điểm phổ biến nhất <span>Cơ sở kinh doanh tại địa điểm phổ biến nhất</span>
+      </h3>
+    </div>
+    <div class="col-md-4">
+      <a href="listings-list-with-sidebar.html" class="img-box"
+         data-background-image="assets/images/popular-location-01.jpg">
+        <div class="listing-badges">
+          <span class="featured">Đặc sắc</span>
+        </div>
+
+        <div class="img-box-content visible">
+          <h4>Hà Nội </h4>
+          <span>14 địa điểm</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-8">
+      <a href="listings-list-with-sidebar.html" class="img-box"
+         data-background-image="assets/images/popular-location-02.jpg">
+        <div class="img-box-content visible">
+          <h4>Hồ Chí Minh</h4>
+          <span>24 địa điểm</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-8">
+      <a href="listings-list-with-sidebar.html" class="img-box"
+         data-background-image="assets/images/popular-location-03.jpg">
+        <div class="img-box-content visible">
+          <h4>Đà Nẵng </h4>
+          <span>12 dịa điểm</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="col-md-4">
+      <a href="listings-list-with-sidebar.html" class="img-box"
+         data-background-image="assets/images/popular-location-04.jpg">
+        <div class="img-box-content visible">
+          <h4>Nha Trang</h4>
+          <span>9 địa điểm</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+<section class="fullwidth margin-top-95 margin-bottom-0">
+
+  <!-- Box Headline -->
+  <h3 class="headline-box">Bài viết & Mẹo</h3>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+
+        <!-- Blog Post -->
+        <div class="blog-post">
+
+          <!-- Img -->
+          <a href="blog-post.html" class="post-img">
+            <img src="assets/images/blog-post-01.jpg" alt="">
+          </a>
+
+          <!-- Content -->
+          <div class="post-content">
+            <h3><a href="#">8 Mẹo Giúp Bạn Tìm Nhà Mới</a></h3>
+            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc,
+              rutrum in malesuada vitae. </p>
+
+            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+          </div>
+
+        </div>
+        <!-- Blog Post / End -->
+
+      </div>
+
+      <div class="col-md-4">
+
+        <!-- Blog Post -->
+        <div class="blog-post">
+
+          <!-- Img -->
+          <a href="blog-post.html" class="post-img">
+            <img src="assets/images/blog-post-02.jpg" alt="">
+          </a>
+
+          <!-- Content -->
+          <div class="post-content">
+            <h3><a href="#">Màu sắc phòng ngủ bạn sẽ không bao giờ hối tiếc</a></h3>
+            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc,
+              rutrum in malesuada vitae. </p>
+
+            <a href="blog-post.html" class="read-more">Đọc thêm <i class="fa fa-angle-right"></i></a>
+          </div>
+
+        </div>
+        <!-- Blog Post / End -->
+
+      </div>
+
+      <div class="col-md-4">
+
+        <!-- Blog Post -->
+        <div class="blog-post">
+
+          <!-- Img -->
+          <a href="blog-post.html" class="post-img">
+            <img src="assets/images/blog-post-03.jpg" alt="">
+          </a>
+
+          <!-- Content -->
+          <div class="post-content">
+            <h3><a href="#">Làm gì một năm trước khi mua căn hộ</a></h3>
+            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc,
+              rutrum in malesuada vitae. </p>
+
+            <a href="blog-post.html" class="read-more">Đọc thêm <i class="fa fa-angle-right"></i></a>
+          </div>
+
+        </div>
+        <!-- Blog Post / End -->
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">

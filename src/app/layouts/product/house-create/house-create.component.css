@@ -9,7 +9,7 @@ mat-slider {
 }
 .main-search-form{
   background-image: url(https://indotech.vn/hinh-background-dep-cho-powerpoint/imager_2_2039_700.jpg);
-  width:70%;
+  width:50%;
   height:90%;
 }
 .main-search-box{
@@ -47,4 +47,14 @@ p{
 mat-slider{
   position:relative;
   bottom:20px;
+}
+h1{
+  font-size:40px;
+  font-weight:800;
+  color: rgb(9, 24, 240);
+  text-align: center;
+  margin-top: 30px !important;
+}
+.col-md-12{
+  margin-top:30px !important;
 }

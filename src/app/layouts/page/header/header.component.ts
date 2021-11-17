@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 })
 export class HeaderComponent implements OnInit {
   isCheckLogin = false;
-  nameUser = ''
+  user: any;
 
   constructor(private authService: AuthService,
               private router: Router) {
@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.isCheckLogin = true;
     }
-    this.getInfoUserLogin();
+    this.getUserInfo();
   }
 
-  getInfoUserLogin() {
+  getUserInfo() {
     this.authService.getUserInfo().subscribe(res => {
-      this.nameUser = res.name
+      this.user = res;
     })
   }
 

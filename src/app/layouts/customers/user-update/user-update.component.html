@@ -1,0 +1,80 @@
+<div class="background"></div>
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2>Cập nhật thông tin người dùng</h2>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="sidebar left">
+
+        <div class="my-account-nav-container">
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lý tài khoản</li>
+            <li><a href="my-profile.html" class="current"><i class="sl sl-icon-user"></i> Thông tin của tôi</a></li>
+            <li><a href="my-bookmarks.html"><i class="sl sl-icon-star"></i> Danh sách được Đánh dấu</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lí danh sách</li>
+            <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> Thuộc tính của tôi</a></li>
+            <li><a href="submit-property.html"><i class="sl sl-icon-action-redo"></i> Gửi tài sản mới</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li><a href="change-password.html"><i class="sl sl-icon-lock"></i> Đổi mật khẩu</a></li>
+            <li><a routerLink="../register"><i class="sl sl-icon-power"></i> Đăng xuất</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-8">
+      <form *ngIf="form" (ngSubmit)="submit()" [formGroup]="form">
+        <div class="row">
+          <div class="col-md-8 my-profile">
+            <h4 class="margin-top-0 margin-bottom-30">Cập nhật thông tin tài khoản</h4>
+
+            <label>Tên :</label>
+            <input type="text" formControlName="name" placeholder="Nhập tên của bạn">
+
+            <label>Giới tính :</label>
+            <select formControlName="gender">
+              <option value="1">Nam</option>
+              <option value="2">Nữ</option>
+            </select>
+
+            <label>Địa chỉ :</label>
+            <input type='text' formControlName="address" placeholder="Nhập địa chỉ (số nhà,quận,huyện,thành phố)"
+                   class="form-control"/>
+
+            <label>Số điện thoại :</label>
+            <input type='number' formControlName="phone" placeholder="Nhập số điện thoại" class="form-control" min="0"
+                   max=""/>
+
+            <label>Email</label>
+            <select formControlName="email">
+              <option value="{{user.email}}">{{user.email}}</option>
+            </select>
+            <div class="col-md-7">
+              <!-- Avatar -->
+              <div class="edit-profile-photo">
+                <app-upload (giveURLtoCreate)="uploadImage($event)"></app-upload>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button margin-top-20 margin-bottom-20">Lưu thông tin</button>
+      </form>
+    </div>
+  </div>
+</div>

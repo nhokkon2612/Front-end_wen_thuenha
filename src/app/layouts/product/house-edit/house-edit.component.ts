@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {HouseService} from "../../../sevices/house.service";
 import {AuthService} from "../../../sevices/auth.service";
 import {ActivatedRoute, Router} from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-house-edit',
@@ -80,11 +81,12 @@ export class HouseEditComponent implements OnInit {
     let data = this.formEditHouse?.value;
     console.log(data);
     this.housesService.editHouse(id, data).subscribe(res => {
-      if (!status) {
-        alert('Cập nhật thông tin nhà cho thuê thành công');
-        this.router.navigate(['/houses']).then();
+      if (res.status == 'success') {
+        Swal.fire('Edit thành công', 'Vui lòng trải nghiệm', 'success')
+        this.router.navigate(['']);
       } else {
-        alert('Thất bại')
+        Swal.fire('Edit không thành công', 'Vui lòng thêm lại', 'error')
+        this.router.navigate([''])
       }
     })
   }

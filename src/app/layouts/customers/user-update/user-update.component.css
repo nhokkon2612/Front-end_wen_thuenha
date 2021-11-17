@@ -1,0 +1,13 @@
+.background{
+  background-image: url(https://img4.thuthuatphanmem.vn/uploads/2020/12/25/hinh-anh-nha-thiet-ke-dep_115825557.jpg);
+  width:100%;
+  height:300px;
+}
+button{
+  width:200px !important;
+}
+.edit-profile-photo{
+  position:relative !important;
+  right:6% !important;
+  width:100% !important;
+}

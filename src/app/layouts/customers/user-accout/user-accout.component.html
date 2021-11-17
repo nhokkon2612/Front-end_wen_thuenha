@@ -1,46 +1,77 @@
-<div class="background"></div>
-<form (ngSubmit)="submit()" [formGroup]="form">
-  <div class="widget">
-    <div id="booking-widget-anchor" class="boxed-widget booking-widget margin-top-35">
-      <h3>Cập nhật thông tin người dùng</h3>
-      <div class="row with-forms  margin-top-0">
-        <p class="form-row form-row-wide">
-          <label>Tên :
-            <input type='text' class="form-control" placeholder="{{user.name}}"/>
-          </label>
-        </p>
-        <p class="form-row form-row-wide">
-          <label>Giới tính :
-            <input type='text' class="form-control" />
-          </label>
-        </p>
-        <p class="form-row form-row-wide">
-          <label>Email :
-            <input type='text' class="form-control" placeholder="{{user.email}}"/>
-          </label>
-        </p>
-        <p class="form-row form-row-wide">
-          <label>Số điện thoại :
-            <input type='text' class="form-control"/>
-          </label>
-        </p>
-        <p class="form-row form-row-wide">
-          <label>Địa chỉ:
-            <input type='text' class="form-control"/>
-          </label>
-        </p>
-        <p class="form-row form-row-wide">
-          <label class="datetimepicker">Thời gian bạn đến ở:
-            <input type="date" id="date" class="form-control">
-          </label>
-        </p>
-        <div class="form-group">
-          <p>Chọn ảnh :</p>
-          <app-upload (giveURLtoCreate)="uploadImage($event)"></app-upload>
-        </div>
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2>Thông tin người dùng</h2>
+
       </div>
-      <button *ngIf="!isCheckLogin" class="button book-now fullwidth margin-top-5" routerLink = "/login">Hoàn thành</button>
-      <button *ngIf="isCheckLogin" class="button book-now fullwidth margin-top-5">Cập nhật</button>
     </div>
   </div>
-</form>
+</div>
+<div class="container">
+  <div class="row">
+
+
+    <!-- Widget -->
+    <div class="col-md-4">
+      <div class="sidebar left">
+
+        <div class="my-account-nav-container">
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lý tài khoản</li>
+            <li><a href="user" class="current"><i class="sl sl-icon-user"></i> Thông tin của tôi</a></li>
+            <li><a href="my-bookmarks.html"><i class="sl sl-icon-star"></i> Danh sách được Đánh dấu</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lí danh sách</li>
+            <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> Thuộc tính của tôi</a></li>
+            <li><a href="submit-property.html"><i class="sl sl-icon-action-redo"></i> Gửi tài sản mới</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li><a href=""><i class="sl sl-icon-lock"></i> Đổi mật khẩu</a></li>
+            <li><a (click)="logout()" ><i class="sl sl-icon-power"></i> Đăng xuất</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+
+
+        <div class="col-md-8 my-profile">
+          <h4 class="margin-top-0 margin-bottom-30">Thông tin tài khoản</h4>
+
+          <label>Tên :</label>
+          <input value="{{user.name}}" type="text">
+
+          <label>Nơi làm việc :</label>
+          <input value="{{user.address}}" type="text">
+
+          <label>Số điện thoại :</label>
+          <input value="{{user.phone}}" type="text">
+
+          <label>Email</label>
+          <input value="{{user.email}}" type="email">
+
+
+          <h4 class="margin-top-50 margin-bottom-25">Sở thích của tôi</h4>
+          <textarea name="about" id="about" cols="30" rows="10">Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper</textarea>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Avatar -->
+          <div class="edit-profile-photo">
+            <img src="{{user.image}}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

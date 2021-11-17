@@ -51,8 +51,7 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     let data = this.form.value;
-    this.registerService.register(data).subscribe(
-      res => {
+    this.registerService.register(data).subscribe(res => {
         if (res.status == 'success') {
           // Swal.fire('Đăng ký thành công','Vui lòng đăng nhập hệ thống','success')
           Swal.fire('Đăng ký thành công','Vui lòng đăng nhập hệ thống','success')

@@ -10,6 +10,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   register(data:any):Observable<any>{
-    return  this.http.post(environment.api_url + 'auth/register', data)
+    return  this.http.post(environment.api_url + 'register', data)
   }
 }
