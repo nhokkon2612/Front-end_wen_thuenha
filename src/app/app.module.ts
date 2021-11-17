@@ -10,7 +10,6 @@ import {HomeComponent} from './layouts/page/home/home.component';
 import {RegisterComponent} from './layouts/customers/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
-import {UserAccoutComponent} from './layouts/customers/user-accout/user-accout.component';
 import {httpInterceptorProviders} from './addtoken.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
@@ -26,7 +25,11 @@ import {HouseDetailComponent} from "./layouts/product/house-detail/house-detail.
 import { HouseCreateComponent } from './layouts/product/house-create/house-create.component';
 import {MatButtonModule} from "@angular/material/button";
 import { ContractComponent } from './layouts/contract/contract.component';
-
+import { IntroduceComponent } from './layouts/page/introduce/introduce.component';
+import { ContactComponent } from './layouts/page/contact/contact.component';
+import { UserAccoutComponent } from './layouts/customers/user-accout/user-accout.component';
+import {UserUpdateComponent} from "./layouts/customers/user-update/user-update.component";
+import { ChangePaswordComponent } from './layouts/customers/change-pasword/change-pasword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +39,17 @@ import { ContractComponent } from './layouts/contract/contract.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    UserAccoutComponent,
     HouseEditComponent,
     UploadComponent,
     HouseListComponent,
     HouseDetailComponent,
     HouseCreateComponent,
     ContractComponent,
+    IntroduceComponent,
+    ContactComponent,
+    UserAccoutComponent,
+    UserUpdateComponent,
+    ChangePaswordComponent
   ],
     imports: [
         BrowserModule,

@@ -1,6 +1,6 @@
 <header id="header-container">
   <div id="top-bar">
-    <div class="container">
+    <div class="container1">
       <div class="left-side">
         <ul class="top-bar-menu">
           <li><i class="fa fa-phone"></i> (123) 123-456</li>
@@ -33,29 +33,28 @@
         </div>
         <nav id="navigation" class="style-1">
           <ul id="responsive">
-            <li><a class="home1" routerLink="/houses">Giới thiệu</a></li>
+            <li><a class="home1" routerLink="../introduce">Giới thiệu</a></li>
             <li><a class="home1" routerLink="/houses">Danh sách cho thuê</a></li>
-            <li><a class="home1" routerLink="/houses">Liên hệ</a></li>
-            <li><a class="home1" href="#">Thông tin người dùng</a>
-              <ul>
-                <li><a href="#">Xem thông tin người dùng</a></li>
-                <li><a href="#" routerLink="../../user/update">Đăng kí thông tin người dùng</a></li>
-              </ul>
-            </li>
-
-
+            <li><a class="home1" routerLink="../contact">Liên hệ</a></li>
+            <li><a class="home1" href="#" routerLink="/user-update">Đăng kí thông tin</a></li>
           </ul>
         </nav>
-        <div class="clearfix"></div>
       </div>
       <div class="right-side" *ngIf="!isCheckLogin">
         <div class="header-widget">
           <a class="sign-in"><a routerLink="login">Đăng nhập</a>/<a routerLink="register">Đăng kí</a></a>
         </div>
       </div>
-      <div class="right-side" *ngIf="isCheckLogin">
+      <div class="right-side" >
         <div class="header-widget">
-          <a class="sign-in"> <a>Xin chào {{ nameUser }}</a>/<a (click)="logout()" href="#">Đăng xuất</a></a>
+          <div  class="user-menu" *ngIf="isCheckLogin">
+            <div class="user-name"> <span><img src="{{user.image}}" alt=""></span>Xin chào {{user.name}}</div>
+            <ul>
+              <li><a href="" routerLink="/user"><i class="sl sl-icon-user"></i> Thông tin cá nhân</a></li>
+              <li><a href="" routerLink="/change-password"><i class="sl sl-icon-lock"></i> Đổi mật khẩu</a></li>
+              <li><a href="" (click)="logout()"> <i class="sl sl-icon-power"></i> Đăng xuất</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

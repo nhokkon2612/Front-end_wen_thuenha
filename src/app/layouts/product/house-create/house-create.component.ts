@@ -61,12 +61,14 @@ export class HouseCreateComponent implements OnInit {
   submit() {
     this.formCreateHouse?.controls.image.setValue(this.image);
     let data = this.formCreateHouse?.value;
+    console.log(data);
     this.housesService.createHouse(data).subscribe(res => {
       if (res.status == 'success') {
-        Swal.fire('Đăng ký thành công', 'Vui lòng đăng nhập hệ thống', 'success')
-        this.router.navigate(['home']);
+        Swal.fire('Thêm mới thành công', 'Vui lòng đăng nhập hệ thống', 'success')
+        this.router.navigate(['']);
       } else {
-        this.router.navigate(['create'])
+        Swal.fire('Thêm mới không thành công', 'Vui lòng phập lại', 'success')
+        this.router.navigate([''])
       }
     })
   }

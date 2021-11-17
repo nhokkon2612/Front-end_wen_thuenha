@@ -26,5 +26,11 @@ export class HouseListComponent implements OnInit {
       this.houses = res;
     })
   }
-
+deleteHouse(id: number) {
+  if (confirm("Bạn có muốn xóa ngôi nhà này?")){
+    this.houseService.deleteHouse(id).subscribe(res => {
+       this.getList();
+    })
+  }
+}
 }

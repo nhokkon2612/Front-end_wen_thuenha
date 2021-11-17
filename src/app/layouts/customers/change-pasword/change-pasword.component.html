@@ -1,0 +1,76 @@
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2>Thay đổi mật khẩu</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="sidebar left">
+
+        <div class="my-account-nav-container">
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lý tài khoản</li>
+            <li><a href="user" class="current"><i class="sl sl-icon-user"></i> Thông tin của tôi</a></li>
+            <li><a href="my-bookmarks.html"><i class="sl sl-icon-star"></i> Danh sách được Đánh dấu</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li class="sub-nav-title">Quản lí danh sách</li>
+            <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> Thuộc tính của tôi</a></li>
+            <li><a href="submit-property.html"><i class="sl sl-icon-action-redo"></i> Gửi tài sản mới</a></li>
+          </ul>
+
+          <ul class="my-account-nav">
+            <li><a href="" routerLink="changePassword"><i class="sl sl-icon-lock"></i> Đổi mật khẩu</a></li>
+            <li><a routerLink="../register"><i class="sl sl-icon-power"></i> Đăng xuất</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()" >
+          <div class="col-md-6  my-profile">
+            <h4 class="margin-top-0 margin-bottom-30">Thay đổi mật khẩu</h4>
+            <label>Mật khẩu cũ</label>
+            <input formControlName="current_password" type="password">
+
+            <label>Mật khẩu mới</label>
+            <input formControlName="password" type="password">
+            <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
+              <div *ngIf="f.password.errors">
+                <div *ngIf="f.password.errors.required">
+                  <small style="color: red" class="form-text text-muted">Mật khẩu không được để trống</small>
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                  <small style="color: red" class="form-text text-muted">Mật khẩu không dưới 6 kí tự</small>
+                </div>
+                <div *ngIf="f.password.errors.maxlength">
+                  <small style="color: red" class="form-text text-muted">Mật khẩu không quá 13 kí tự</small>
+                </div>
+              </div>
+            </div>
+            <label>Nhập lại mật khẩu mới</label>
+            <input type="password" formControlName="confirmPassword">
+            <button type="submit" class="margin-top-20 button">Thay đổi mật khẩu</button>
+          </div>
+          <div class="col-md-6">
+            <div class="notification notice">
+              <p>Mật khẩu của bạn phải dài ít nhất 6 ký tự ngẫu nhiên để an toàn</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

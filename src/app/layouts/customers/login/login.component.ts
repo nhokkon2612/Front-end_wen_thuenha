@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(data).subscribe(res => {
       if (res.status == 'error') {
         this.errorLogin = res.message;
+        Swal.fire("Tài khoản ,mật khẩu không chính xác", 'Vui lòng thử lại', "error")
       } else {
         this.successLogin = res.message;
         localStorage.setItem('user',JSON.stringify(res.user_infor));
